@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude AI Bootcamp - Learner Guide</title>
+    <style>
+        @page {
+            margin: 0.75in;
+            size: letter;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0;
+            background: white;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            color: white;
+            padding: 24px;
+            margin-bottom: 32px;
+            border-radius: 8px;
+        }
+        
+        .header h1 {
+            margin: 0 0 8px 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .header .tagline {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+        
+        .platform-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        h2 {
+            color: #8b5cf6;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9d5ff;
+            page-break-after: avoid;
+        }
+        
+        h3 {
+            color: #374151;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            page-break-after: avoid;
+        }
+        
+        .day-section {
+            margin-bottom: 32px;
+            page-break-inside: avoid;
+        }
+        
+        .day-header {
+            background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            border-left: 4px solid #8b5cf6;
+        }
+        
+        .day-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #581c87;
+            margin: 0 0 4px 0;
+        }
+        
+        .day-meta {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7c3aed;
+            font-weight: 600;
+        }
+        
+        .why-box {
+            background: #f9fafb;
+            border-left: 3px solid #8b5cf6;
+            padding: 12px 16px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+        
+        .why-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #374151;
+        }
+        
+        .content-block {
+            margin: 16px 0;
+        }
+        
+        .content-block h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8b5cf6;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+        }
+        
+        .learn-item {
+            background: #fafafa;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .learn-item-title {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .learn-item-sub {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+        
+        .learn-item-time {
+            display: inline-block;
+            background: #ede9fe;
+            color: #7c3aed;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            float: right;
+        }
+        
+        .learn-item-link {
+            font-size: 11px;
+            color: #8b5cf6;
+            word-break: break-all;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0;
+        }
+        
+        .tips-list li {
+            background: #faf5ff;
+            padding: 10px 12px;
+            margin: 6px 0;
+            border-radius: 6px;
+            font-size: 13px;
+            border-left: 3px solid #a78bfa;
+        }
+        
+        .tips-list strong {
+            color: #581c87;
+        }
+        
+        .do-it-box {
+            background: #fef2f2;
+            border: 2px solid #fca5a5;
+            padding: 14px;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+        
+        .do-it-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #1f2937;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0;
+        }
+        
+        .checklist li {
+            padding: 6px 0;
+            font-size: 13px;
+            color: #374151;
+        }
+        
+        .checklist li:before {
+            content: "☐ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .callout {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px 16px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+        
+        .callout-title {
+            font-weight: 700;
+            color: #1e40af;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .callout p {
+            margin: 0;
+            font-size: 13px;
+            color: #1e3a8a;
+        }
+        
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 16px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+        
+        .warning-title {
+            font-weight: 700;
+            color: #92400e;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .highlight {
+            background: #fef3c7;
+            border: 2px solid #fbbf24;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .role-examples {
+            margin: 12px 0;
+        }
+        
+        .role-item {
+            background: #fef2f2;
+            padding: 10px 12px;
+            margin: 6px 0;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        
+        .role-name {
+            font-weight: 700;
+            color: #991b1b;
+            margin-right: 8px;
+        }
+        
+        .prep-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .prep-list li {
+            background: #f9fafb;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .prep-list-title {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .prep-list-detail {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        
+        .resource-card {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .resource-name {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .resource-desc {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+        
+        .resource-link {
+            font-size: 11px;
+            color: #8b5cf6;
+        }
+        
+        .habits-list {
+            margin: 16px 0;
+        }
+        
+        .habit-item {
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .habit-daily {
+            background: #ecfdf5;
+            border-color: #10b981;
+        }
+        
+        .habit-weekly {
+            background: #eff6ff;
+            border-color: #3b82f6;
+        }
+        
+        .habit-monthly {
+            background: #faf5ff;
+            border-color: #a78bfa;
+        }
+        
+        .habit-freq {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-right: 8px;
+        }
+        
+        .habit-text {
+            font-size: 13px;
+            color: #374151;
+        }
+        
+        .footer {
+            margin-top: 48px;
+            padding-top: 16px;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+            font-size: 11px;
+            color: #6b7280;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .day-section {
+                page-break-inside: avoid;
+            }
+            
+            h2 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="subtitle">Your Personal Bootcamp Guide</div>
+        <h1>Claude AI Bootcamp</h1>
+        <div class="tagline">Zero to Running in 2 Weeks • 60–90 min/day • Applied to Real Work</div>
+        <div class="platform-badge">🪟 Windows + 🍎 Mac Compatible</div>
+    </div>
+
+    <!-- WELCOME SECTION -->
+    <h2>Welcome to the Bootcamp 👋</h2>
+    
+    <div class="why-box">
+        <p>Over the next two weeks, you're going to learn how to work <em>with</em> AI — not just read about it. Every day has a short learning block (30–45 min) and a hands-on task using <strong>your actual work</strong>. No fake exercises. No homework. By Day 10, Claude should feel like a team member you forgot to introduce at the all-hands.</p>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">💡 Why This Matters — Right Now</div>
+        <p>AI fluency isn't a "nice to have" anymore. It's the new baseline for knowledge work. Teams that learn to work alongside AI are shipping faster, producing higher-quality output, and spending less time on repetitive tasks. Teams that don't are falling behind — not in theory, but in measurable output. This bootcamp exists to make sure you're on the right side of that line.</p>
+    </div>
+
+    <h3>How to Use This Guide</h3>
+    <ul class="tips-list">
+        <li><strong>📋 Complete in order:</strong> Each day builds on the previous one</li>
+        <li><strong>✅ Track progress:</strong> Check off items as you complete them</li>
+        <li><strong>💡 Read Pro Tips:</strong> They give you shortcuts and insider knowledge</li>
+        <li><strong>🎯 Attend group sessions:</strong> Days 5 and 10 are 90-minute team sessions</li>
+        <li><strong>⏱️ Budget your time:</strong> 60–90 minutes daily — fits in a lunch break</li>
+    </ul>
+
+    <!-- BEFORE DAY 1 -->
+    <h2>Before Day 1 — Complete These First</h2>
+    <p style="color: #6b7280; font-size: 14px;">Takes ~15 minutes. Do this before Monday morning.</p>
+
+    <ul class="prep-list">
+        <li>
+            <div class="prep-list-title">🔑 Log into claude.ai and confirm your account works</div>
+            <div class="prep-list-detail">You should have a Pro account ($20/mo) or higher. If you can't log in, flag it now.</div>
+        </li>
+        <li>
+            <div class="prep-list-title">💻 Download the Claude Desktop app</div>
+            <div class="prep-list-detail">Go to claude.ai/download — choose the Windows (.exe) or Mac (.dmg) installer. You'll need this for Cowork in Week 2.</div>
+        </li>
+        <li>
+            <div class="prep-list-title">🌐 Install Google Chrome + the Claude in Chrome extension</div>
+            <div class="prep-list-detail">The extension officially requires Chrome. If you use Edge, see the browser note in Day 9.</div>
+        </li>
+        <li>
+            <div class="prep-list-title">🔀 Create a free GitHub account</div>
+            <div class="prep-list-detail">Go to github.com and sign up. You'll use this on Day 7 — no coding required.</div>
+        </li>
+        <li>
+            <div class="prep-list-title">💡 Think of ONE recurring task you do weekly that feels tedious</div>
+            <div class="prep-list-detail">You'll use this on Day 1. Pick something real — a report, a status update, meeting prep, data entry.</div>
+        </li>
+    </ul>
+
+    <div class="warning">
+        <div class="warning-title">🌐 Browser Compatibility Note</div>
+        <p><strong>✅ Chrome:</strong> Fully supported<br>
+        <strong>⚠️ Edge:</strong> Install from Chrome Web Store. Not officially supported but widely reported to work<br>
+        <strong>❌ Firefox / Safari:</strong> Not supported<br><br>
+        <em>Edge users: Install Chrome alongside Edge for Claude browser work — you don't need to switch your default browser.</em></p>
+    </div>
+
+    <!-- WEEK 1 -->
+    <h2>Week 1: Foundations at Speed</h2>
+    <p style="color: #6b7280; font-size: 14px; margin-bottom: 24px;">Get fluent. Get productive. No theory without practice.</p>
+
+    <!-- DAY 1 -->
+    <div class="day-section">
+        <div class="day-header">
+            <div class="day-meta">Day 1 — Monday</div>
+            <div class="day-title">🚀 Orientation + First Real Conversation</div>
+        </div>
+
+        <div class="why-box">
+            <p><strong>Why:</strong> Today you meet Claude — not as a search engine, but as a working partner. The goal is simple: give Claude a real task and see what happens.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>📚 Learn (30 min)</h4>
+            
+            <div class="learn-item">
+                <div class="learn-item-time">30 min</div>
+                <div class="learn-item-title">Anthropic Academy — AI Fluency: Framework & Foundations (Module 1)</div>
+                <div class="learn-item-sub">The 4D Framework: Description, Delegation, Discernment, Diligence</div>
+                <div class="learn-item-link">anthropic.skilljar.com/ai-fluency-framework-foundations</div>
+            </div>
+
+            <div class="learn-item">
+                <div class="learn-item-time">5 min</div>
+                <div class="learn-item-title">Skim Claude.ai feature overview</div>
+                <div class="learn-item-sub">Just know what buttons exist — Projects, Artifacts, uploads, web search, styles</div>
+                <div class="learn-item-link">support.claude.com</div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>🛠️ Do It (30 min)</h4>
+            <div class="do-it-box">
+                <p>Take a tedious recurring task from your actual job — not a toy example — and do it with Claude. Draft a stakeholder update. Summarize meeting notes. Review a proposal for gaps. Create a project brief from scattered bullet points.</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">💡 Pro Tip</div>
+            <p>Don't overthink your first prompt. Just type what you'd say to a smart colleague sitting next to you. You'll learn to refine later — Day 2 is all about that.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>✅ Self-Check — Did I…</h4>
+            <ul class="checklist">
+                <li>Log into claude.ai and confirm it works</li>
+                <li>Complete one real work task with Claude</li>
+                <li>Note what worked and what felt off</li>
+            </ul>
+        </div>
+
+        <div class="callout" style="background: #eff6ff; border-color: #3b82f6;">
+            <p style="font-style: italic; color: #1e3a8a;"><strong>Mindset:</strong> Claude isn't Google. Don't ask it a question — give it a job.</p>
+        </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-section">
+        <div class="day-header">
+            <div class="day-meta">Day 2 — Tuesday</div>
+            <div class="day-title">🎯 Prompt Engineering Crash Course</div>
+        </div>
+
+        <div class="why-box">
+            <p><strong>Why:</strong> The difference between 'meh' Claude output and 'wow' Claude output is almost always the prompt. Today you learn the five techniques that matter most.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>📚 Learn (45 min)</h4>
+            
+            <div class="learn-item">
+                <div class="learn-item-time">20 min</div>
+                <div class="learn-item-title">Anthropic Docs — Prompt Engineering Overview</div>
+                <div class="learn-item-sub">Current to Opus 4.6 / Sonnet 4.5 — the models you're using right now</div>
+                <div class="learn-item-link">docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview</div>
+            </div>
+
+            <div class="learn-item">
+                <div class="learn-item-time">15 min</div>
+                <div class="learn-item-title">Claude 4 Best Practices</div>
+                <div class="learn-item-sub">Model-specific techniques that make a real difference</div>
+                <div class="learn-item-link">docs.claude.com — Claude 4 Best Practices</div>
+            </div>
+
+            <div class="learn-item">
+                <div class="learn-item-time">10 min</div>
+                <div class="learn-item-title">Prompt Engineering for Business Performance</div>
+                <div class="learn-item-sub">Fortune 500 case study: chain-of-thought, few-shot examples, scratchpad reasoning</div>
+                <div class="learn-item-link">anthropic.com/news/prompt-engineering-for-business-performance</div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>🔑 5 Rules to Internalize</h4>
+            <ul class="tips-list">
+                <li><strong>Be explicit:</strong> "Write a 3-paragraph executive summary for a non-technical VP" beats "summarize this"</li>
+                <li><strong>Give context & motivation:</strong> "This goes to the board, so accuracy and tone matter more than speed"</li>
+                <li><strong>Show examples:</strong> Paste in past work you liked and say "match this style and depth"</li>
+                <li><strong>Specify format:</strong> "Use headers. Bullet the risks. Keep it under 500 words."</li>
+                <li><strong>Iterate, don't restart:</strong> If output is 70% right, tell Claude what to fix. Don't re-prompt from scratch.</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <h4>🛠️ Do It (30 min)</h4>
+            <div class="do-it-box">
+                <p>"Before & After" exercise — Take yesterday's Claude interaction. Rewrite your prompt using today's techniques. Run both prompts. Compare the outputs side by side.</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">💡 Pro Tip</div>
+            <p>Copy-paste a previous deliverable you're proud of into the chat and say "match this tone, depth, and structure." Claude mirrors what you show it.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>✅ Self-Check — Did I…</h4>
+            <ul class="checklist">
+                <li>Read the prompt engineering docs</li>
+                <li>Rewrite yesterday's prompt with specific techniques</li>
+                <li>See a clear difference in output quality</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-section">
+        <div class="day-header">
+            <div class="day-meta">Day 3 — Wednesday</div>
+            <div class="day-title">📄 Files, Documents & Artifacts</div>
+        </div>
+
+        <div class="why-box">
+            <p><strong>Why:</strong> Claude can read your actual documents — PDFs, spreadsheets, images, contracts. This is where it stops feeling like a chatbot and starts feeling like a research assistant.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>📚 Learn (30 min)</h4>
+            
+            <div class="learn-item">
+                <div class="learn-item-time">30 min</div>
+                <div class="learn-item-title">Claude Docs — Working with Files and Artifacts</div>
+                <div class="learn-item-sub">Uploading PDFs, CSVs, images. How Artifacts work as reusable outputs</div>
+                <div class="learn-item-link">docs.claude.com</div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>🛠️ Do It (30 min)</h4>
+            <div class="do-it-box">
+                <p>Upload a REAL document to Claude — a report, policy doc, dataset, contract, or competitor analysis. Then ask Claude to:</p>
+                <ol style="margin: 8px 0; padding-left: 20px;">
+                    <li>Summarize the key points for a specific audience</li>
+                    <li>Identify 3 things that are missing, unclear, or inconsistent</li>
+                    <li>Generate a follow-up action list</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">💡 Pro Tip</div>
+            <p>Try uploading an image — a whiteboard photo, a slide deck screenshot, a dashboard. Claude can interpret visual content and describe what it sees. Most people don't realize this works.</p>
+        </div>
+
+        <div class="warning">
+            <div class="warning-title">⚡ Gotcha</div>
+            <p>Claude can handle up to ~200K tokens of context (roughly 500 pages). But for best results, be specific about what you want it to focus on. "Read this 40-page report and summarize it" works — "Read this and tell me everything" doesn't.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>✅ Self-Check — Did I…</h4>
+            <ul class="checklist">
+                <li>Upload a real work document</li>
+                <li>Have Claude summarize it for my specific audience</li>
+                <li>Try the 'find gaps' prompt and get useful results</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day-section">
+        <div class="day-header">
+            <div class="day-meta">Day 4 — Thursday</div>
+            <div class="day-title">🧠 Projects — Build Your Work Brain</div>
+        </div>
+
+        <div class="highlight">
+            ⭐ This is the most important day in Week 1. This is when it clicks.
+        </div>
+
+        <div class="why-box">
+            <p><strong>Why:</strong> Projects are where Claude goes from 'generic AI assistant' to 'someone who knows your job.' You're building a persistent workspace with your context, your docs, and your rules.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>📚 Learn (30 min)</h4>
+            
+            <div class="learn-item">
+                <div class="learn-item-time">15 min</div>
+                <div class="learn-item-title">Claude Docs — Projects and Custom Instructions</div>
+                <div class="learn-item-sub">Persistent workspaces with context, reference docs, and standing instructions</div>
+                <div class="learn-item-link">docs.claude.com</div>
+            </div>
+
+            <div class="learn-item">
+                <div class="learn-item-time">15 min</div>
+                <div class="learn-item-title">Claude Support — Projects guide</div>
+                <div class="learn-item-sub">Step-by-step walkthrough of creating and managing Projects</div>
+                <div class="learn-item-link">support.claude.com</div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>🛠️ Do It (45 min)</h4>
+            <div class="do-it-box">
+                <p><strong>BUILD A CLAUDE PROJECT</strong> for your actual role:</p>
+                <ol style="margin: 8px 0; padding-left: 20px;">
+                    <li>Create a new Project in claude.ai</li>
+                    <li>Name it something real — "Q1 Client Proposals" or "Weekly Reporting"</li>
+                    <li>Upload 3–5 reference documents (style guide, past good work, SOPs, relevant data)</li>
+                    <li>Write Custom Instructions telling Claude your role, audience, tone, format, and standing rules</li>
+                    <li>Test it on a real task. Feel the difference from a blank conversation.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">💡 Pro Tip</div>
+            <p><strong>Custom Instructions starter template:</strong><br><br>
+            "I'm a [your role] at [company]. My audience is [who reads your work]. I prefer [tone — formal? concise? detailed?]. Good output looks like [describe it]. Always [your standing rules]. Never [things to avoid]."</p>
+        </div>
+
+        <div class="warning">
+            <div class="warning-title">⚡ Gotcha</div>
+            <p>Projects are different from regular conversations. A Project keeps your uploaded docs and instructions across every new chat you start inside it. A regular conversation forgets everything when you start a new one.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>✅ Self-Check — Did I…</h4>
+            <ul class="checklist">
+                <li>Create a Project named after real work</li>
+                <li>Upload 3+ reference documents</li>
+                <li>Write Custom Instructions covering role, audience, tone, and rules</li>
+                <li>Test it and notice the output was better than Day 1</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="day-section">
+        <div class="day-header">
+            <div class="day-meta">Day 5 — Friday</div>
+            <div class="day-title">⚡ Friday Sprint #1</div>
+        </div>
+
+        <div class="why-box">
+            <p><strong>Why:</strong> No new learning. All doing. This is your chance to build something real — a Claude workflow for the single most repetitive task in your week. Use everything from Days 1–4.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>⚡ Sprint — 90 minutes</h4>
+            <div class="do-it-box">
+                <p>Pick the SINGLE highest-value, most repetitive task in your week and build a Claude workflow for it, end to end. This should be something you'll actually use next week.</p>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>Ideas by Role</h4>
+            <div class="role-examples">
+                <div class="role-item">
+                    <span class="role-name">Project Manager:</span>
+                    Meeting transcripts → formatted status update + action items + risk flags
+                </div>
+                <div class="role-item">
+                    <span class="role-name">Marketing:</span>
+                    Brand guidelines + past campaigns → 3 variations of upcoming campaign copy
+                </div>
+                <div class="role-item">
+                    <span class="role-name">Finance / Ops:</span>
+                    Dataset → summary analysis + anomaly flags + report narrative
+                </div>
+                <div class="role-item">
+                    <span class="role-name">Sales:</span>
+                    ICP docs + case studies → personalized outreach for 3 real prospects
+                </div>
+                <div class="role-item">
+                    <span class="role-name">HR / People:</span>
+                    Benefits FAQ + policy docs → employee-facing comms for upcoming change
+                </div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">💡 Pro Tip</div>
+            <p>Build this inside a Project (from Day 4) with your reference docs loaded. The output quality will be dramatically better than a blank conversation.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>✅ Self-Check — Did I…</h4>
+            <ul class="checklist">
+                <li>Identify my most repetitive high-value task</li>
+                <li>Build a working Claude workflow for it</li>
+                <li>Estimate the time saved vs. doing it manually</li>
+                <li>Note one thing I'd improve</li>
+            </ul>
+        </div>
+
+        <div class="callout" style="background: #faf5ff; border-color: #a78bfa;">
+            <p style="color: #6b21a8;">🎧 <strong>Optional weekend listening:</strong> Leveraging AI Podcast — Ep. 259: "Claude Cowork is Claude Code for All Work"</p>
+        </div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <h2 style="page-break-before: always;">Week 2: Power Tools & Acceleration</h2>
+    <p style="color: #6b7280; font-size: 14px; margin-bottom: 24px;">Now you're fluent. Time to go faster.</p>
+
+    <!-- DAY 6 -->
+    <div class="day-section">
+        <div class="day-header">
+            <div class="day-meta">Day 6 — Monday</div>
+            <div class="day-title">⚙️ Skills & Workflow Automation</div>
+        </div>
+
+        <div class="why-box">
+            <p><strong>Why:</strong> Skills are reusable instruction packages — think of them as 'macros for AI.' Instead of re-explaining your workflow every conversation, you build it once and Claude runs it on demand. This is where repetitive work starts to disappear.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>📚 Learn (45 min)</h4>
+            
+            <div class="learn-item">
+                <div class="learn-item-time">35 min</div>
+                <div class="learn-item-title">DeepLearning.AI — Agent Skills with Anthropic (Lessons 1–3)</div>
+                <div class="learn-item-sub">Free course by Anthropic's Elie Schoppik. Skills work in claude.ai, Cowork, and Claude Code.</div>
+                <div class="learn-item-link">deeplearning.ai/short-courses/agent-skills-with-anthropic</div>
+            </div>
+
+            <div class="learn-item">
+                <div class="learn-item-time">10 min</div>
+                <div class="learn-item-title">Claude Blog — Skills Explained</div>
+                <div class="learn-item-sub">How Skills compare to prompts, Projects, MCP, and subagents</div>
+                <div class="learn-item-link">claude.com/blog</div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>🛠️ Do It (30 min)</h4>
+            <div class="do-it-box">
+                <p>Try Anthropic's pre-built Skills — specifically the Excel analysis skill and the PowerPoint generation skill. Upload a real spreadsheet or dataset and let Claude run the skill against it. If you're feeling ambitious: start drafting your own skill for a workflow you repeat weekly.</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">💡 Pro Tip</div>
+            <p>The Excel analysis skill is the easiest win. Upload any spreadsheet and watch Claude generate charts, summaries, and insights automatically. Try it on something you'd normally spend 30 minutes analyzing manually.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>✅ Self-Check — Did I…</h4>
+            <ul class="checklist">
+                <li>Watch at least Lessons 1–3 of the Skills course</li>
+                <li>Try a pre-built Skill on real data</li>
+                <li>Have an idea for a custom Skill I could build</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DAY 7 -->
+    <div class="day-section">
+        <div class="day-header">
+            <div class="day-meta">Day 7 — Tuesday</div>
+            <div class="day-title">🔀 GitHub for the AI Era</div>
+        </div>
+
+        <div class="why-box">
+            <p><strong>Why:</strong> GitHub is where AI prompt libraries, Skills files, documentation, and automation configs live now. Being able to navigate a repo and submit a pull request is like learning to use shared drives in 2005. Not exciting, but career-defining.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>📚 Learn (45 min)</h4>
+            
+            <div class="learn-item">
+                <div class="learn-item-time">35 min</div>
+                <div class="learn-item-title">GitHub Skills — Introduction to GitHub</div>
+                <div class="learn-item-sub">Free, interactive, runs inside GitHub itself. Covers repos, branches, commits, pull requests.</div>
+                <div class="learn-item-link">skills.github.com</div>
+            </div>
+
+            <div class="learn-item">
+                <div class="learn-item-time">10 min</div>
+                <div class="learn-item-title">GitHub Docs Quickstart (supplement if needed)</div>
+                <div class="learn-item-sub">Reference material for anything that's unclear</div>
+                <div class="learn-item-link">docs.github.com/en/get-started/quickstart</div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>🛠️ Do It (30 min)</h4>
+            <div class="do-it-box">
+                <p><strong>Team repo exercise:</strong></p>
+                <ol style="margin: 8px 0; padding-left: 20px;">
+                    <li>Fork the team-claude-playbook repo</li>
+                    <li>Create a new file called prompts/[your-name]-best-prompt.md</li>
+                    <li>Paste in your best Claude prompt from Week 1</li>
+                    <li>Submit a pull request</li>
+                </ol>
+                <p style="margin-top: 8px;">That's it. You just used GitHub for real. Without writing code.</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">💡 Pro Tip</div>
+            <p>If you get stuck, ask Claude to help you. Seriously — paste a screenshot of what you're seeing in GitHub and ask "what do I click next?" Claude is excellent at walking you through interfaces.</p>
+        </div>
+
+        <div class="warning">
+            <div class="warning-title">⚡ Gotcha</div>
+            <p>Don't get lost in the weeds of Git terminology. You need to know four words: <strong>repo</strong> (a folder), <strong>branch</strong> (a copy to work on), <strong>commit</strong> (save your changes), <strong>pull request</strong> (ask to merge your changes). That's it.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>✅ Self-Check — Did I…</h4>
+            <ul class="checklist">
+                <li>Complete the GitHub Skills intro course</li>
+                <li>Fork the team repo</li>
+                <li>Create a file and submit a pull request</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DAY 8 -->
+    <div class="day-section">
+        <div class="day-header">
+            <div class="day-meta">Day 8 — Wednesday</div>
+            <div class="day-title">🤝 Cowork — Your AI Coworker</div>
+        </div>
+
+        <div class="callout" style="background: #ecfdf5; border-color: #10b981;">
+            <p style="color: #065f46;">✅ <strong>Platform note:</strong> Cowork works on both Windows and Mac with full feature parity. Open the Claude Desktop app → click "Cowork" at the top. Same experience on both platforms.</p>
+        </div>
+
+        <div class="why-box">
+            <p><strong>Why:</strong> Cowork is the biggest unlock in this bootcamp for non-developers. You point Claude at a folder on your computer and it can read, edit, create, and organize files. It plans its work, executes multi-step tasks, and loops you in. It's less like a chat and more like delegating to a capable colleague.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>📚 Learn (30 min)</h4>
+            
+            <div class="learn-item">
+                <div class="learn-item-time">15 min</div>
+                <div class="learn-item-title">Anthropic Blog — Introducing Cowork</div>
+                <div class="learn-item-sub">The official launch post — what it is, how it works, what to watch out for</div>
+                <div class="learn-item-link">claude.com/blog/cowork-research-preview</div>
+            </div>
+
+            <div class="learn-item">
+                <div class="learn-item-time">15 min</div>
+                <div class="learn-item-title">DataCamp — Claude Cowork Tutorial</div>
+                <div class="learn-item-sub">Practical, step-by-step walkthrough with real examples</div>
+                <div class="learn-item-link">datacamp.com/tutorial/claude-cowork-tutorial</div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>🛠️ Do It (45 min)</h4>
+            <div class="do-it-box">
+                <p>Open the Claude Desktop app → click the Cowork tab. Point it at a COPY of a real folder and try one of these:</p>
+                <ul style="margin: 8px 0; padding-left: 20px;">
+                    <li>"Organize these files by type and date, renaming them with descriptive names"</li>
+                    <li>"Read all the files in this folder and create a single summary document"</li>
+                    <li>"Look at these receipt images and create an expense spreadsheet"</li>
+                    <li>"Review these draft documents and create a status report"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="warning">
+            <div class="warning-title">⚠️ Safety Rules — Read These</div>
+            <ul style="margin: 8px 0; padding-left: 20px; font-size: 13px;">
+                <li><strong>ALWAYS use a COPY</strong> of your folder — Cowork can delete files</li>
+                <li><strong>Start with low-stakes folders</strong> (downloads, drafts) — not financial or client docs</li>
+                <li><strong>Give clear, specific instructions</strong> — vague = risky with an agent that takes action</li>
+                <li><strong>Review what Claude did</strong> before trusting the output</li>
+            </ul>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">💡 Pro Tip</div>
+            <p>The magic of Cowork is multi-step tasks. Instead of "organize my files," try: "Read every document in this folder, group them by project, create a summary document for each project, and create a master index with links to each summary." Claude will plan the steps and execute them.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>✅ Self-Check — Did I…</h4>
+            <ul class="checklist">
+                <li>Have the Claude Desktop app installed</li>
+                <li>Point Cowork at a copy of a real folder</li>
+                <li>Give it a clear task and review the results</li>
+                <li>Understand the safety precautions</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DAY 9 -->
+    <div class="day-section">
+        <div class="day-header">
+            <div class="day-meta">Day 9 — Thursday</div>
+            <div class="day-title">🌐 Browser Automation + Connecting It All</div>
+        </div>
+
+        <div class="why-box">
+            <p><strong>Why:</strong> Today you connect all the pieces. Projects give Claude your context. The browser gives it current information. Cowork gives it your files. Skills give it reusable workflows. Together, these aren't features — they're a way of working.</p>
+        </div>
+
+        <div class="warning">
+            <div class="warning-title">🌐 Browser Compatibility</div>
+            <p><strong>✅ Chrome:</strong> Fully supported<br>
+            <strong>⚠️ Edge:</strong> Install from Chrome Web Store. Not officially supported but widely reported to work<br>
+            <strong>❌ Firefox / Safari:</strong> Not supported<br><br>
+            <em>Edge users: Install Chrome alongside Edge for Claude browser work — you don't need to switch your default browser.</em></p>
+        </div>
+
+        <div class="content-block">
+            <h4>📚 Learn (30 min)</h4>
+            
+            <div class="learn-item">
+                <div class="learn-item-time">15 min</div>
+                <div class="learn-item-title">Claude Docs — Claude in Chrome</div>
+                <div class="learn-item-sub">Claude can see and interact with web pages directly from the Desktop app</div>
+                <div class="learn-item-link">docs.claude.com</div>
+            </div>
+
+            <div class="learn-item">
+                <div class="learn-item-time">15 min</div>
+                <div class="learn-item-title">Claude Docs — Connectors</div>
+                <div class="learn-item-sub">Browse what's available: Settings → Connectors → Browse</div>
+                <div class="learn-item-link">docs.claude.com</div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>🛠️ Do It (45 min)</h4>
+            <div class="do-it-box">
+                <p><strong>"Full Loop" exercise</strong> — Combine everything you've learned:</p>
+                <ol style="margin: 8px 0; padding-left: 20px;">
+                    <li>Use a Claude Project (with your custom instructions and reference docs from Day 4)</li>
+                    <li>Use browser automation to research something you need for work this week</li>
+                    <li>Have Claude synthesize the research into a deliverable (memo, brief, analysis)</li>
+                    <li>Optionally, use Cowork to save the output to a local project folder</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">💡 Pro Tip</div>
+            <p>Browse the Connectors catalog (Settings → Connectors → Browse). There are hundreds of integrations — for cloud storage, project management, communications, and more. Even if you don't set them up today, knowing they exist changes what's possible.</p>
+        </div>
+
+        <div class="callout" style="background: #eff6ff; border-color: #3b82f6;">
+            <p style="font-style: italic; color: #1e3a8a;"><strong>Mindset:</strong> Projects give context. Browser gives current info. Cowork gives file access. Skills give reusable workflows. Together = a way of working.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>✅ Self-Check — Did I…</h4>
+            <ul class="checklist">
+                <li>Use a Project with custom instructions</li>
+                <li>Try browser automation or Connectors</li>
+                <li>Combine at least 2 Claude tools in a single workflow</li>
+                <li>Produce a real work deliverable</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DAY 10 -->
+    <div class="day-section">
+        <div class="day-header">
+            <div class="day-meta">Day 10 — Friday</div>
+            <div class="day-title">🏆 Capstone + Team Playbook</div>
+        </div>
+
+        <div class="why-box">
+            <p><strong>Why:</strong> This is where it all comes together. You'll share what you built, learn from your teammates, and create a shared playbook that becomes a living resource for the team. Most importantly — you'll decide what habits stick.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>🏁 Session Structure — 90 minutes</h4>
+            
+            <div class="learn-item">
+                <div class="learn-item-time">30 min</div>
+                <div class="learn-item-title">Part 1: AI Wins Showcase</div>
+                <div class="learn-item-sub">Each person shares one concrete example from the bootcamp where Claude made a real difference. Show the output. Share the prompt. Quantify time saved. 2–3 minutes each. Fast, energizing, peer learning.</div>
+            </div>
+
+            <div class="learn-item">
+                <div class="learn-item-time">30 min</div>
+                <div class="learn-item-title">Part 2: Build the Team Playbook</div>
+                <div class="learn-item-sub">Populate the team GitHub repo with: prompts/ (best templates by role), projects/ (Project setup descriptions), skills/ (any custom Skills), workflows/ (step-by-step writeups). This becomes a living resource.</div>
+            </div>
+
+            <div class="learn-item">
+                <div class="learn-item-time">30 min</div>
+                <div class="learn-item-title">Part 3: What's Next</div>
+                <div class="learn-item-sub">What habits do we keep? Where do we need guardrails? Who wants to go deeper (Claude Code, MCP, API)? Who's the Claude Champion — the person who stays current and updates the playbook?</div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">💡 Pro Tip</div>
+            <p>Prepare your showcase before the meeting. Pick your single best Claude result from the bootcamp — the one where the time savings or quality improvement was most obvious. Have the prompt ready to share.</p>
+        </div>
+
+        <div class="content-block">
+            <h4>✅ Self-Check — Did I…</h4>
+            <ul class="checklist">
+                <li>Prepare one concrete 'AI win' to share</li>
+                <li>Contribute at least one item to the team playbook</li>
+                <li>Know what my daily Claude habit will be going forward</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <h2 style="page-break-before: always;">Your Ongoing Toolkit</h2>
+
+    <h3>Essential Resources</h3>
+    <div class="resources-grid">
+        <div class="resource-card">
+            <div class="resource-name">🎓 Anthropic Academy</div>
+            <div class="resource-desc">Free official courses + certificates</div>
+            <div class="resource-link">anthropic.skilljar.com</div>
+        </div>
+        <div class="resource-card">
+            <div class="resource-name">📖 Claude Docs</div>
+            <div class="resource-desc">Product documentation & how-tos</div>
+            <div class="resource-link">docs.claude.com</div>
+        </div>
+        <div class="resource-card">
+            <div class="resource-name">📝 Claude Blog</div>
+            <div class="resource-desc">Skills, Cowork, product deep dives</div>
+            <div class="resource-link">claude.com/blog</div>
+        </div>
+        <div class="resource-card">
+            <div class="resource-name">🧪 DeepLearning.AI</div>
+            <div class="resource-desc">Free Anthropic-partnered courses</div>
+            <div class="resource-link">deeplearning.ai/short-courses</div>
+        </div>
+        <div class="resource-card">
+            <div class="resource-name">🔀 GitHub Skills</div>
+            <div class="resource-desc">Free interactive GitHub training</div>
+            <div class="resource-link">skills.github.com</div>
+        </div>
+        <div class="resource-card">
+            <div class="resource-name">🔍 Simon Willison's Blog</div>
+            <div class="resource-desc">Sharpest voice on Claude tooling</div>
+            <div class="resource-link">simonwillison.net</div>
+        </div>
+    </div>
+
+    <h3>Keep Learning After the Bootcamp</h3>
+    <ul class="prep-list">
+        <li>
+            <div class="prep-list-title">AI Fluency full course</div>
+            <div class="prep-list-detail">Complete the 4D Framework + certificate | anthropic.skilljar.com</div>
+        </li>
+        <li>
+            <div class="prep-list-title">Agent Skills full course</div>
+            <div class="prep-list-detail">Master reusable AI workflows | deeplearning.ai/short-courses/agent-skills-with-anthropic</div>
+        </li>
+        <li>
+            <div class="prep-list-title">Claude Code course</div>
+            <div class="prep-list-detail">Understand agentic AI — even without coding | learn.deeplearning.ai/courses/claude-code</div>
+        </li>
+    </ul>
+
+    <h3>Recommended Podcasts</h3>
+    <div class="resources-grid">
+        <div class="resource-card">
+            <div class="resource-name">The Daily AI Show</div>
+            <div class="resource-desc">Live weekday panel, 45 min, no fluff</div>
+        </div>
+        <div class="resource-card">
+            <div class="resource-name">Leveraging AI</div>
+            <div class="resource-desc">Business-focused Claude strategy</div>
+        </div>
+        <div class="resource-card">
+            <div class="resource-name">How I AI</div>
+            <div class="resource-desc">Short, practical Claude workflows</div>
+        </div>
+        <div class="resource-card">
+            <div class="resource-name">AI Inside</div>
+            <div class="resource-desc">Interviews with AI product leaders</div>
+        </div>
+    </div>
+
+    <h3>Build These Habits</h3>
+    <div class="habits-list">
+        <div class="habit-item habit-daily">
+            <span class="habit-freq" style="color: #065f46;">Daily:</span>
+            <span class="habit-text">Ask yourself: "Should I do this alone, or should Claude and I do this together?"</span>
+        </div>
+        <div class="habit-item habit-weekly">
+            <span class="habit-freq" style="color: #1e40af;">Weekly:</span>
+            <span class="habit-text">Add any great prompts or workflows to the team playbook repo. Browse claude.com/blog for new features.</span>
+        </div>
+        <div class="habit-item habit-monthly">
+            <span class="habit-freq" style="color: #6b21a8;">Monthly:</span>
+            <span class="habit-text">Browse claude.com/blog and anthropic.com/news for new features. Claude's capabilities change monthly.</span>
+        </div>
+    </div>
+
+    <div class="callout" style="margin-top: 32px; background: #faf5ff; border-color: #a78bfa;">
+        <p style="text-align: center; color: #6b21a8; font-size: 15px; font-weight: 600;">
+            The tools will keep evolving. The habits and mental models you built in these 2 weeks will outlast any specific feature. You now know how to work with AI. Keep going.
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>Claude AI Bootcamp — Learner Guide • February 2026 • Windows + Mac Compatible</p>
+        <p style="margin-top: 4px;">The habits you build in these 2 weeks will outlast any specific feature.</p>
+    </div>
+</body>
+</html>
