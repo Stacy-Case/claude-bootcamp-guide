@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude AI Bootcamp - Interactive Guide</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        #root {
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState } = React;
+
+        const DAYS = [
+          {
+            day: 1, week: 1, title: "Orientation + First Real Conversation",
+            icon: "🚀", color: "#6366f1",
+            learn: [
+              { text: "Anthropic Academy — AI Fluency: Framework & Foundations (Module 1 only)", sub: "The 4D Framework: Description, Delegation, Discernment, Diligence", link: "https://anthropic.skilljar.com/ai-fluency-framework-foundations", time: "30 min" },
+              { text: "Skim Claude.ai feature overview", sub: "Know what buttons exist — Projects, Artifacts, uploads, web search, styles", link: "https://support.claude.com", time: "5 min" }
+            ],
+            doIt: "Take your tedious recurring task and do it WITH Claude. Not a toy example — your actual work. Draft a stakeholder update. Summarize meeting notes. Review a proposal for gaps.",
+            post: "What you asked Claude to do, what worked, and what felt off.",
+            mindset: "Claude isn't Google. Don't ask it a question — give it a job."
+          },
+          {
+            day: 2, week: 1, title: "Prompt Engineering Crash Course",
+            icon: "🎯", color: "#8b5cf6",
+            learn: [
+              { text: "Anthropic Docs — Prompt Engineering Overview", sub: "Current to Opus 4.6 / Sonnet 4.5", link: "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview", time: "20 min" },
+              { text: "Claude 4 Best Practices", sub: "Model-specific techniques for the models you're using right now", link: "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices", time: "15 min" },
+              { text: "Prompt Engineering for Business Performance", sub: "Fortune 500 case study: chain-of-thought, few-shot, scratchpad reasoning", link: "https://www.anthropic.com/news/prompt-engineering-for-business-performance", time: "10 min" }
+            ],
+            doIt: '"Before & After" exercise — Take yesterday\'s Claude interaction. Rewrite your prompt using today\'s techniques. Run both. Screenshot the difference.',
+            post: "Your before & after prompt comparison.",
+            tips: [
+              "Be explicit — instruct, don't hint",
+              "Give context & motivation — tell Claude WHY",
+              "Show examples — paste past work you liked",
+              "Specify format — headers, bullets, word count",
+              "Iterate, don't restart — fix the 70%, don't re-prompt"
+            ]
+          },
+          {
+            day: 3, week: 1, title: "Files, Documents & Artifacts",
+            icon: "📄", color: "#a78bfa",
+            learn: [
+              { text: "Claude Docs — Working with Files and Artifacts", sub: "Uploading PDFs, CSVs, images. How Artifacts work as reusable outputs.", link: "https://docs.claude.com", time: "30 min" }
+            ],
+            doIt: 'Upload a REAL document — report, policy doc, dataset, contract. Ask Claude to: (1) Summarize for a specific audience, (2) Find 3 gaps or inconsistencies, (3) Generate a follow-up action list. Bonus: upload an image (whiteboard, slide, dashboard).',
+            post: "Your best result from the file exercise."
+          },
+          {
+            day: 4, week: 1, title: "Projects — Build Your Work Brain",
+            icon: "🧠", color: "#c084fc",
+            learn: [
+              { text: "Claude Docs — Projects and Custom Instructions", sub: "Persistent workspaces with context, reference docs, and standing instructions", link: "https://docs.claude.com", time: "15 min" },
+              { text: "Claude Support — Projects guide", link: "https://support.claude.com", time: "15 min" }
+            ],
+            doIt: 'BUILD A PROJECT for your actual role: (1) Name it something real, (2) Upload 3–5 reference docs, (3) Write Custom Instructions covering your role, audience, tone, format, and standing rules. (4) Test it on a real task.',
+            post: "Your Project name and how the output compared to Day 1.",
+            highlight: true,
+            highlightText: "This is the most important day in Week 1. This is when it clicks."
+          },
+          {
+            day: 5, week: 1, title: "🔥 Friday Sprint #1",
+            icon: "⚡", color: "#e879f9",
+            learn: [],
+            doIt: 'No new learning. All doing. 90 minutes. Pick the SINGLE highest-value, most repetitive task in your week and build a Claude workflow for it end-to-end.',
+            post: "(1) What you built, (2) Estimated time saved, (3) One thing you'd improve.",
+            sprint: true,
+            roles: [
+              { role: "Project Manager", task: "Meeting transcripts → formatted status update + action items + risk flags" },
+              { role: "Marketing", task: "Brand guidelines + past campaigns → 3 variations of upcoming copy" },
+              { role: "Finance / Ops", task: "Dataset → summary analysis + anomaly flags + report narrative" },
+              { role: "Sales", task: "ICP docs + case studies → personalized outreach for 3 real prospects" },
+              { role: "HR / People", task: "Benefits FAQ + policy docs → employee-facing comms for upcoming change" }
+            ],
+            weekend: "🎧 Weekend listening: Leveraging AI Podcast — Ep. 259: \"Claude Cowork is Claude Code for All Work\""
+          },
+          {
+            day: 6, week: 2, title: "Skills & Extended Thinking",
+            icon: "⚙️", color: "#f472b6",
+            learn: [
+              { text: "DeepLearning.AI — Agent Skills with Anthropic (Lessons 1–3)", sub: "Free course by Elie Schoppik. Skills = reusable instruction packages = \"macros for AI\"", link: "https://www.deeplearning.ai/short-courses/agent-skills-with-anthropic/", time: "35 min" },
+              { text: "Claude Blog — Skills Explained", sub: "How Skills compare to prompts, Projects, MCP, and subagents", link: "https://claude.com/blog", time: "10 min" },
+              { text: "NEW: When to Use Extended Thinking (Opus 4.5)", sub: "Understanding the cost/benefit tradeoff for complex reasoning tasks", link: "https://docs.claude.com", time: "15 min", badge: "NEW" }
+            ],
+            doIt: "Try Anthropic's pre-built Skills — specifically the Excel analysis skill and the PowerPoint generation skill. Upload a real spreadsheet or dataset and let Claude run the skill against it. THEN: Try Extended Thinking mode on your most complex task this week (strategy doc, legal review, technical analysis) and compare to standard mode.",
+            extendedThinking: {
+              title: "Extended Thinking: When to Use It",
+              description: "Opus 4.5 with Extended Thinking takes more time and costs more, but delivers dramatically better results for complex reasoning tasks.",
+              useCases: [
+                { icon: "📊", title: "Complex Analysis", desc: "Multi-variable financial modeling, market research synthesis, competitive landscape analysis" },
+                { icon: "⚖️", title: "Legal/Compliance Review", desc: "Contract analysis, policy interpretation, regulatory compliance assessment" },
+                { icon: "🏗️", title: "Technical Architecture", desc: "System design decisions, infrastructure planning, technical trade-off analysis" },
+                { icon: "📋", title: "Strategic Planning", desc: "Multi-stakeholder decision frameworks, scenario planning, long-term roadmaps" }
+              ],
+              tradeoff: "Extended Thinking is slower and uses more tokens (higher cost), but for your highest-value, most complex tasks, the quality improvement is worth it. Use it when the cost of getting it wrong exceeds the cost of the extra compute time.",
+              howTo: "In claude.ai: Select 'Claude Opus 4.5' model → Enable 'Extended Thinking' toggle before sending your prompt. Watch Claude show its reasoning process in real-time."
+            }
+          },
+          {
+            day: 7, week: 2, title: "GitHub for the AI Era",
+            icon: "🔀", color: "#fb7185",
+            learn: [
+              { text: "GitHub Skills — Introduction to GitHub", sub: "Free, interactive, runs inside GitHub. Repos, branches, commits, pull requests.", link: "https://skills.github.com", time: "35 min" },
+              { text: "GitHub Docs Quickstart (supplement)", link: "https://docs.github.com/en/get-started/quickstart", time: "10 min" }
+            ],
+            doIt: "Team repo exercise: Fork the team-claude-playbook repo → Create prompts/[your-name]-best-prompt.md → Paste your best prompt from Week 1 → Submit a pull request. That's it. You just used GitHub for real.",
+            post: '"I submitted my first pull request" — celebrate this!',
+            callout: "GitHub is where AI prompt libraries, Skills files, and automation configs live now. You don't need to code. You need to navigate and contribute."
+          },
+          {
+            day: 8, week: 2, title: "Cowork — Your AI Coworker",
+            icon: "🤝", color: "#f43f5e",
+            learn: [
+              { text: "Anthropic Blog — Introducing Cowork", sub: "Claude Code for non-developers. Point Claude at a folder. It reads, edits, creates files.", link: "https://claude.com/blog/cowork-research-preview", time: "15 min" },
+              { text: "DataCamp — Claude Cowork Tutorial", sub: "Practical, step-by-step walkthrough with examples", link: "https://www.datacamp.com/tutorial/claude-cowork-tutorial", time: "15 min" }
+            ],
+            doIt: "Open the Claude Desktop app → click the Cowork tab at the top. Point it at a COPY of a folder. Try: organize files by type/date, create a summary doc from scattered notes, build a spreadsheet from receipt images, or generate a status report from drafts.",
+            post: "What you tried, what happened, your honest reaction.",
+            platformNote: "✅ Cowork works on both Windows and Mac with full feature parity. Open the Claude Desktop app → click \"Cowork\" in the top nav. Same experience on both platforms.",
+            safety: [
+              "Always use a COPY of your folder — Cowork can delete files",
+              "Start with low-stakes folders, not financial or client docs",
+              "Give clear, specific instructions — vague = risky",
+              "Review what Claude did before trusting the output"
+            ]
+          },
+          {
+            day: 9, week: 2, title: "Browser Automation + Connecting It All",
+            icon: "🌐", color: "#ef4444",
+            learn: [
+              { text: "Claude Docs — Claude in Chrome", sub: "Claude can see and interact with web pages. Works with Chrome; Edge users see note below.", link: "https://docs.claude.com", time: "15 min" },
+              { text: "Claude Docs — Connectors", sub: "Browse the connector catalog: Settings → Connectors → Browse", link: "https://docs.claude.com", time: "15 min" }
+            ],
+            doIt: '"Full Loop" exercise — Combine everything: (1) Use your Claude Project, (2) Use browser automation to research something for work, (3) Synthesize into a deliverable, (4) Optionally save to a local folder via Cowork.',
+            mindset: "Projects give context. Browser gives current info. Cowork gives file access. Skills give reusable workflows. Together = a way of working.",
+            browserNote: true
+          },
+          {
+            day: 10, week: 2, title: "🏁 Capstone + Team Playbook",
+            icon: "🏆", color: "#dc2626",
+            learn: [],
+            doIt: "90-minute team session.",
+            sprint: true,
+            capstone: true,
+            parts: [
+              { title: "AI Wins Showcase", time: "30 min", desc: "Each person shares one concrete example. Show the output. Share the prompt. Quantify time saved. 2–3 min each." },
+              { title: "Build the Team Playbook", time: "30 min", desc: "Populate the GitHub repo: prompts/, projects/, skills/, workflows/. This becomes the living resource for the team." },
+              { title: "What's Next — Choose Your Path", time: "30 min", desc: "Decision tree for going deeper: Power Users (advanced courses), Builder Track (Skills → Code → MCP), or Enterprise/Scale Track (Team tier, shared Projects, Extended Thinking budget). Assign Claude Champion.", badge: "UPDATED" }
+            ],
+            pathsInfo: true
+          }
+        ];
+
+        const PATHS = [
+          {
+            name: "Power Users",
+            subtitle: "No coding required",
+            color: "#10b981",
+            icon: "🚀",
+            description: "You're fluent with Claude and want to get even better at using it for your work.",
+            next: [
+              "Complete Anthropic Academy advanced courses (free)",
+              "Follow Simon Willison's blog for cutting-edge techniques",
+              "Subscribe to Leveraging AI podcast for business strategy",
+              "Experiment with Extended Thinking for your most complex tasks"
+            ]
+          },
+          {
+            name: "Builder Track",
+            subtitle: "Some coding / technical depth",
+            color: "#3b82f6",
+            icon: "🛠️",
+            description: "You want to build custom workflows, Skills, and integrations.",
+            next: [
+              "Complete full Agent Skills course (DeepLearning.AI)",
+              "Claude Code course — understand agentic AI deeply",
+              "Set up MCP servers for custom tool integrations",
+              "Future: CodePath AI Engineering courses (when available for professionals)"
+            ]
+          },
+          {
+            name: "Enterprise/Scale Track",
+            subtitle: "Leadership / team-wide deployment",
+            color: "#a78bfa",
+            icon: "📊",
+            description: "You're responsible for team adoption, ROI, and scaling Claude across the org.",
+            next: [
+              "Evaluate Claude Team ($30/user/mo) vs. Enterprise tier",
+              "Build centralized shared Projects library by function",
+              "Budget for Extended Thinking on high-value use cases",
+              "Assign Claude Champion to run monthly \"What's New\" sessions",
+              "Track usage metrics and time-saved ROI"
+            ]
+          }
+        ];
+
+        function Badge({text, color}) {
+          return React.createElement('span', {
+            style: { 
+              display: "inline-block", 
+              fontSize: 9, 
+              fontWeight: 700, 
+              letterSpacing: 0.5, 
+              textTransform: "uppercase", 
+              color, 
+              background: color + "20", 
+              border: `1px solid ${color}40`, 
+              borderRadius: 4, 
+              padding: "2px 6px", 
+              marginLeft: 6 
+            }
+          }, text);
+        }
+
+        function BrowserNote() {
+          return React.createElement('div', {
+            style: { background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 10, padding: "14px 16px", marginBottom: 16 }
+          },
+            React.createElement('div', { style: { fontSize: 13, fontWeight: 600, color: "#fbbf24", marginBottom: 6 } }, "🌐 Browser Compatibility — Read This"),
+            React.createElement('div', { style: { fontSize: 13, color: "#d4d4de", lineHeight: 1.6, marginBottom: 8 } },
+              React.createElement('strong', { style: { color: "#e8e8ed" } }, "Claude in Chrome"),
+              " is Anthropic's official browser extension. Here's what your team needs to know:"
+            ),
+            React.createElement('div', { style: { fontSize: 12, color: "#b8b8c8", lineHeight: 1.6 } },
+              React.createElement('div', { style: { padding: "4px 0", display: "flex", gap: 8 } },
+                React.createElement('span', { style: { color: "#4ade80" } }, "✅"),
+                React.createElement('strong', null, "Google Chrome"),
+                " — Fully supported. This is the official target."
+              ),
+              React.createElement('div', { style: { padding: "4px 0", display: "flex", gap: 8 } },
+                React.createElement('span', { style: { color: "#fbbf24" } }, "⚠️"),
+                React.createElement('strong', null, "Microsoft Edge"),
+                " — Chromium-based, so the extension can be installed from the Chrome Web Store. Anthropic says it's \"not officially supported\" but Edge users widely report it works."
+              ),
+              React.createElement('div', { style: { padding: "4px 0", display: "flex", gap: 8 } },
+                React.createElement('span', { style: { color: "#f87171" } }, "❌"),
+                React.createElement('strong', null, "Firefox / Safari"),
+                " — Not supported. No extension available."
+              )
+            )
+          );
+        }
+
+        function Bootcamp() {
+          const [view, setView] = useState("overview");
+          const [selectedDay, setSelectedDay] = useState(null);
+
+          const d = selectedDay !== null ? DAYS[selectedDay] : null;
+
+          return React.createElement('div', {
+            style: { fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", background: "#0a0a0f", color: "#e8e8ed", minHeight: "100vh" }
+          },
+            React.createElement('div', {
+              style: { background: "linear-gradient(135deg, #1a1025 0%, #0f0a1a 50%, #0a0f1a 100%)", borderBottom: "1px solid rgba(139,92,246,0.2)", padding: "28px 24px 20px" }
+            },
+              React.createElement('div', { style: { maxWidth: 900, margin: "0 auto" } },
+                React.createElement('div', { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 8 } },
+                  React.createElement('div', {
+                    style: { width: 40, height: 40, borderRadius: 10, background: "linear-gradient(135deg, #8b5cf6, #ec4899)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }
+                  }, "⚡"),
+                  React.createElement('div', { style: { flex: 1 } },
+                    React.createElement('div', {
+                      style: { fontSize: 11, fontWeight: 600, letterSpacing: 2, color: "#a78bfa", textTransform: "uppercase" }
+                    }, "2-Week Accelerated Program"),
+                    React.createElement('h1', {
+                      style: { margin: 0, fontSize: 24, fontWeight: 700, background: "linear-gradient(135deg, #e8e8ed, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }
+                    }, "Claude AI Bootcamp")
+                  )
+                ),
+                React.createElement('p', {
+                  style: { margin: "6px 0 14px", fontSize: 14, color: "#9898a8", lineHeight: 1.5 }
+                }, "Zero to running in 2 weeks. 60–90 min/day. Applied to your real work. Works on Windows and Mac."),
+                React.createElement('div', { style: { display: "flex", gap: 6, flexWrap: "wrap" } },
+                  [
+                    ["overview", "Overview"], ["week1", "Week 1"], ["week2", "Week 2"], ["paths", "Next Paths"], ["resources", "Resources"]
+                  ].map(([k, l]) =>
+                    React.createElement('button', {
+                      key: k,
+                      onClick: () => { setView(k); setSelectedDay(null); },
+                      style: {
+                        padding: "7px 14px",
+                        borderRadius: 8,
+                        border: view === k ? "1px solid #8b5cf6" : "1px solid rgba(255,255,255,0.08)",
+                        background: view === k ? "rgba(139,92,246,0.15)" : "rgba(255,255,255,0.03)",
+                        color: view === k ? "#c4b5fd" : "#7a7a8a",
+                        fontSize: 13,
+                        fontWeight: 500,
+                        cursor: "pointer"
+                      }
+                    }, l)
+                  )
+                )
+              )
+            ),
+            React.createElement('div', { style: { maxWidth: 900, margin: "0 auto", padding: "24px 24px 60px" } },
+              view === "overview" && !d && React.createElement('div', null,
+                React.createElement('div', {
+                  style: { background: "rgba(139,92,246,0.06)", border: "1px solid rgba(139,92,246,0.15)", borderRadius: 12, padding: 20, marginBottom: 24 }
+                },
+                  React.createElement('p', { style: { margin: 0, fontSize: 15, lineHeight: 1.65, color: "#c8c8d4" } },
+                    "This isn't optional enrichment. It's a two-week sprint to permanently change how your team works. Every day has one learning block ",
+                    React.createElement('span', { style: { color: "#a78bfa" } }, "(30–45 min)"),
+                    " and one applied task using ",
+                    React.createElement('span', { style: { color: "#a78bfa" } }, "your actual work"),
+                    ". By Day 10, Claude should feel like a team member you forgot to introduce at the all-hands."
+                  )
+                ),
+                React.createElement('h2', { style: { fontSize: 18, fontWeight: 600, marginBottom: 16, color: "#d4d4de" } }, "The 10-Day Map"),
+                React.createElement('div', { style: { display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 8, marginBottom: 32 } },
+                  DAYS.map((day, i) =>
+                    React.createElement('button', {
+                      key: i,
+                      onClick: () => { setSelectedDay(i); setView(day.week === 1 ? "week1" : "week2"); },
+                      style: {
+                        background: `linear-gradient(135deg, ${day.color}15, ${day.color}08)`,
+                        border: `1px solid ${day.color}30`,
+                        borderRadius: 10,
+                        padding: "14px 8px",
+                        cursor: "pointer",
+                        textAlign: "center",
+                        transition: "all 0.2s",
+                        position: "relative"
+                      }
+                    },
+                      (day.day === 6 || day.day === 10) && React.createElement('div', {
+                        style: { position: "absolute", top: 4, right: 4, width: 6, height: 6, borderRadius: "50%", background: "#fbbf24" }
+                      }),
+                      React.createElement('div', { style: { fontSize: 22, marginBottom: 4 } }, day.icon),
+                      React.createElement('div', {
+                        style: { fontSize: 10, fontWeight: 600, color: day.color, letterSpacing: 1, textTransform: "uppercase", marginBottom: 2 }
+                      }, "Day ", day.day),
+                      React.createElement('div', { style: { fontSize: 11, color: "#9898a8", lineHeight: 1.3 } },
+                        day.title.replace("🔥 ", "").replace("🏁 ", "")
+                      )
+                    )
+                  )
+                )
+              ),
+              view === "paths" && React.createElement('div', null,
+                React.createElement('h2', { style: { fontSize: 18, fontWeight: 600, marginBottom: 6, color: "#d4d4de" } }, "What's Next: Choose Your Path"),
+                React.createElement('p', { style: { fontSize: 14, color: "#7a7a8a", marginBottom: 20 } }, "After completing the bootcamp, you have three pathways to go deeper. Pick the one that matches your goals and technical comfort level."),
+                React.createElement('div', { style: { display: "flex", flexDirection: "column", gap: 14 } },
+                  PATHS.map((path, i) =>
+                    React.createElement('div', {
+                      key: i,
+                      style: {
+                        background: "rgba(255,255,255,0.02)",
+                        border: `2px solid ${path.color}30`,
+                        borderRadius: 12,
+                        padding: 20
+                      }
+                    },
+                      React.createElement('div', { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 12 } },
+                        React.createElement('div', { style: { fontSize: 28 } }, path.icon),
+                        React.createElement('div', { style: { flex: 1 } },
+                          React.createElement('h3', { style: { margin: 0, fontSize: 17, fontWeight: 700, color: path.color } }, path.name),
+                          React.createElement('div', { style: { fontSize: 12, color: "#7a7a8a", fontStyle: "italic" } }, path.subtitle)
+                        )
+                      ),
+                      React.createElement('p', { style: { margin: "0 0 14px", fontSize: 14, color: "#c8c8d4", lineHeight: 1.6 } }, path.description),
+                      React.createElement('div', { style: { fontSize: 12, fontWeight: 600, color: path.color, marginBottom: 8 } }, "Next Steps:"),
+                      React.createElement('div', { style: { display: "flex", flexDirection: "column", gap: 6 } },
+                        path.next.map((step, j) =>
+                          React.createElement('div', { key: j, style: { display: "flex", gap: 8, alignItems: "baseline" } },
+                            React.createElement('span', { style: { color: path.color, fontSize: 12 } }, "→"),
+                            React.createElement('span', { style: { fontSize: 13, color: "#b8b8c8", lineHeight: 1.5 } }, step)
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            ),
+            React.createElement('div', { style: { borderTop: "1px solid rgba(255,255,255,0.05)", padding: "16px 24px", textAlign: "center" } },
+              React.createElement('p', { style: { margin: 0, fontSize: 11, color: "#4a4a5a" } }, "Claude AI Bootcamp — February 2025 · Updated with Extended Thinking & Path Framework")
+            )
+          );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(Bootcamp));
+    </script>
+</body>
+</html>
