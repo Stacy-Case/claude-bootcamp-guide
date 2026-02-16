@@ -8,14 +8,10 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        #root {
-            min-height: 100vh;
-        }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif; }
+        #root { min-height: 100vh; }
+        button { font-family: inherit; }
     </style>
 </head>
 <body>
@@ -95,7 +91,7 @@
             day: 6, week: 2, title: "Skills & Extended Thinking",
             icon: "⚙️", color: "#f472b6",
             learn: [
-              { text: "DeepLearning.AI — Agent Skills with Anthropic (Lessons 1–3)", sub: "Free course by Elie Schoppik. Skills = reusable instruction packages = \"macros for AI\"", link: "https://www.deeplearning.ai/short-courses/agent-skills-with-anthropic/", time: "35 min" },
+              { text: "DeepLearning.AI — Agent Skills with Anthropic (Lessons 1–3)", sub: "Free course by Elie Schoppik. Skills = reusable instruction packages", link: "https://www.deeplearning.ai/short-courses/agent-skills-with-anthropic/", time: "35 min" },
               { text: "Claude Blog — Skills Explained", sub: "How Skills compare to prompts, Projects, MCP, and subagents", link: "https://claude.com/blog", time: "10 min" },
               { text: "NEW: When to Use Extended Thinking (Opus 4.5)", sub: "Understanding the cost/benefit tradeoff for complex reasoning tasks", link: "https://docs.claude.com", time: "15 min", badge: "NEW" }
             ],
@@ -120,7 +116,7 @@
               { text: "GitHub Skills — Introduction to GitHub", sub: "Free, interactive, runs inside GitHub. Repos, branches, commits, pull requests.", link: "https://skills.github.com", time: "35 min" },
               { text: "GitHub Docs Quickstart (supplement)", link: "https://docs.github.com/en/get-started/quickstart", time: "10 min" }
             ],
-            doIt: "Team repo exercise: Fork the team-claude-playbook repo → Create prompts/[your-name]-best-prompt.md → Paste your best prompt from Week 1 → Submit a pull request. That's it. You just used GitHub for real.",
+            doIt: "Team repo exercise: Fork the team-claude-playbook repo → Create prompts/[your-name]-best-prompt.md → Paste your best prompt from Week 1 → Submit a pull request.",
             post: '"I submitted my first pull request" — celebrate this!',
             callout: "GitHub is where AI prompt libraries, Skills files, and automation configs live now. You don't need to code. You need to navigate and contribute."
           },
@@ -131,9 +127,9 @@
               { text: "Anthropic Blog — Introducing Cowork", sub: "Claude Code for non-developers. Point Claude at a folder. It reads, edits, creates files.", link: "https://claude.com/blog/cowork-research-preview", time: "15 min" },
               { text: "DataCamp — Claude Cowork Tutorial", sub: "Practical, step-by-step walkthrough with examples", link: "https://www.datacamp.com/tutorial/claude-cowork-tutorial", time: "15 min" }
             ],
-            doIt: "Open the Claude Desktop app → click the Cowork tab at the top. Point it at a COPY of a folder. Try: organize files by type/date, create a summary doc from scattered notes, build a spreadsheet from receipt images, or generate a status report from drafts.",
+            doIt: "Open the Claude Desktop app → click the Cowork tab. Point it at a COPY of a folder. Try: organize files by type/date, create a summary doc from scattered notes, build a spreadsheet from receipt images.",
             post: "What you tried, what happened, your honest reaction.",
-            platformNote: "✅ Cowork works on both Windows and Mac with full feature parity. Open the Claude Desktop app → click \"Cowork\" in the top nav. Same experience on both platforms.",
+            platformNote: "✅ Cowork works on both Windows and Mac with full feature parity.",
             safety: [
               "Always use a COPY of your folder — Cowork can delete files",
               "Start with low-stakes folders, not financial or client docs",
@@ -145,7 +141,7 @@
             day: 9, week: 2, title: "Browser Automation + Connecting It All",
             icon: "🌐", color: "#ef4444",
             learn: [
-              { text: "Claude Docs — Claude in Chrome", sub: "Claude can see and interact with web pages. Works with Chrome; Edge users see note below.", link: "https://docs.claude.com", time: "15 min" },
+              { text: "Claude Docs — Claude in Chrome", sub: "Claude can see and interact with web pages. Works with Chrome.", link: "https://docs.claude.com", time: "15 min" },
               { text: "Claude Docs — Connectors", sub: "Browse the connector catalog: Settings → Connectors → Browse", link: "https://docs.claude.com", time: "15 min" }
             ],
             doIt: '"Full Loop" exercise — Combine everything: (1) Use your Claude Project, (2) Use browser automation to research something for work, (3) Synthesize into a deliverable, (4) Optionally save to a local folder via Cowork.',
@@ -162,7 +158,7 @@
             parts: [
               { title: "AI Wins Showcase", time: "30 min", desc: "Each person shares one concrete example. Show the output. Share the prompt. Quantify time saved. 2–3 min each." },
               { title: "Build the Team Playbook", time: "30 min", desc: "Populate the GitHub repo: prompts/, projects/, skills/, workflows/. This becomes the living resource for the team." },
-              { title: "What's Next — Choose Your Path", time: "30 min", desc: "Decision tree for going deeper: Power Users (advanced courses), Builder Track (Skills → Code → MCP), or Enterprise/Scale Track (Team tier, shared Projects, Extended Thinking budget). Assign Claude Champion.", badge: "UPDATED" }
+              { title: "What's Next — Choose Your Path", time: "30 min", desc: "Decision tree: Power Users, Builder Track, or Enterprise/Scale Track. Assign Claude Champion.", badge: "UPDATED" }
             ],
             pathsInfo: true
           }
@@ -192,7 +188,7 @@
               "Complete full Agent Skills course (DeepLearning.AI)",
               "Claude Code course — understand agentic AI deeply",
               "Set up MCP servers for custom tool integrations",
-              "Future: CodePath AI Engineering courses (when available for professionals)"
+              "Future: CodePath AI Engineering courses (when available)"
             ]
           },
           {
@@ -205,198 +201,381 @@
               "Evaluate Claude Team ($30/user/mo) vs. Enterprise tier",
               "Build centralized shared Projects library by function",
               "Budget for Extended Thinking on high-value use cases",
-              "Assign Claude Champion to run monthly \"What's New\" sessions",
+              "Assign Claude Champion to run monthly updates",
               "Track usage metrics and time-saved ROI"
             ]
           }
         ];
 
+        const RESOURCES = [
+          { name: "Anthropic Academy", desc: "Free official courses + certificates", link: "anthropic.skilljar.com", icon: "🎓" },
+          { name: "Claude Docs", desc: "Product documentation & how-tos", link: "docs.claude.com", icon: "📖" },
+          { name: "Claude Blog", desc: "Skills, Cowork, deep dives", link: "claude.com/blog", icon: "📝" },
+          { name: "DeepLearning.AI", desc: "Free Anthropic-partnered courses", link: "deeplearning.ai/short-courses", icon: "🧪" },
+          { name: "GitHub Skills", desc: "Free interactive GitHub training", link: "skills.github.com", icon: "🔀" },
+          { name: "Simon Willison", desc: "Sharpest voice on Claude tooling", link: "simonwillison.net", icon: "🔍" }
+        ];
+
+        const PODCASTS = [
+          { name: "The Daily AI Show", desc: "Live weekday panel, 45 min" },
+          { name: "Leveraging AI", desc: "Business-focused Claude strategy" },
+          { name: "How I AI", desc: "Short, practical workflows" },
+          { name: "AI Inside", desc: "Interviews with AI leaders" }
+        ];
+
         function Badge({text, color}) {
-          return React.createElement('span', {
-            style: { 
-              display: "inline-block", 
-              fontSize: 9, 
-              fontWeight: 700, 
-              letterSpacing: 0.5, 
-              textTransform: "uppercase", 
-              color, 
-              background: color + "20", 
-              border: `1px solid ${color}40`, 
-              borderRadius: 4, 
-              padding: "2px 6px", 
-              marginLeft: 6 
-            }
-          }, text);
+          return <span style={{ display: "inline-block", fontSize: 9, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase", color, background: color + "20", border: `1px solid ${color}40`, borderRadius: 4, padding: "2px 6px", marginLeft: 6 }}>{text}</span>;
         }
 
         function BrowserNote() {
-          return React.createElement('div', {
-            style: { background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 10, padding: "14px 16px", marginBottom: 16 }
-          },
-            React.createElement('div', { style: { fontSize: 13, fontWeight: 600, color: "#fbbf24", marginBottom: 6 } }, "🌐 Browser Compatibility — Read This"),
-            React.createElement('div', { style: { fontSize: 13, color: "#d4d4de", lineHeight: 1.6, marginBottom: 8 } },
-              React.createElement('strong', { style: { color: "#e8e8ed" } }, "Claude in Chrome"),
-              " is Anthropic's official browser extension. Here's what your team needs to know:"
-            ),
-            React.createElement('div', { style: { fontSize: 12, color: "#b8b8c8", lineHeight: 1.6 } },
-              React.createElement('div', { style: { padding: "4px 0", display: "flex", gap: 8 } },
-                React.createElement('span', { style: { color: "#4ade80" } }, "✅"),
-                React.createElement('strong', null, "Google Chrome"),
-                " — Fully supported. This is the official target."
-              ),
-              React.createElement('div', { style: { padding: "4px 0", display: "flex", gap: 8 } },
-                React.createElement('span', { style: { color: "#fbbf24" } }, "⚠️"),
-                React.createElement('strong', null, "Microsoft Edge"),
-                " — Chromium-based, so the extension can be installed from the Chrome Web Store. Anthropic says it's \"not officially supported\" but Edge users widely report it works."
-              ),
-              React.createElement('div', { style: { padding: "4px 0", display: "flex", gap: 8 } },
-                React.createElement('span', { style: { color: "#f87171" } }, "❌"),
-                React.createElement('strong', null, "Firefox / Safari"),
-                " — Not supported. No extension available."
-              )
-            )
+          return (
+            <div style={{ background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 10, padding: "14px 16px", marginBottom: 16 }}>
+              <div style={{ fontSize: 13, fontWeight: 600, color: "#fbbf24", marginBottom: 6 }}>🌐 Browser Compatibility</div>
+              <div style={{ fontSize: 12, color: "#b8b8c8", lineHeight: 1.6 }}>
+                <div style={{ padding: "4px 0", display: "flex", gap: 8 }}><span style={{ color: "#4ade80" }}>✅</span> <strong>Chrome</strong> — Fully supported</div>
+                <div style={{ padding: "4px 0", display: "flex", gap: 8 }}><span style={{ color: "#fbbf24" }}>⚠️</span> <strong>Edge</strong> — Install from Chrome Web Store. Not officially supported but widely works</div>
+                <div style={{ padding: "4px 0", display: "flex", gap: 8 }}><span style={{ color: "#f87171" }}>❌</span> <strong>Firefox/Safari</strong> — Not supported</div>
+              </div>
+            </div>
           );
         }
 
         function Bootcamp() {
           const [view, setView] = useState("overview");
           const [selectedDay, setSelectedDay] = useState(null);
-
           const d = selectedDay !== null ? DAYS[selectedDay] : null;
 
-          return React.createElement('div', {
-            style: { fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", background: "#0a0a0f", color: "#e8e8ed", minHeight: "100vh" }
-          },
-            React.createElement('div', {
-              style: { background: "linear-gradient(135deg, #1a1025 0%, #0f0a1a 50%, #0a0f1a 100%)", borderBottom: "1px solid rgba(139,92,246,0.2)", padding: "28px 24px 20px" }
-            },
-              React.createElement('div', { style: { maxWidth: 900, margin: "0 auto" } },
-                React.createElement('div', { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 8 } },
-                  React.createElement('div', {
-                    style: { width: 40, height: 40, borderRadius: 10, background: "linear-gradient(135deg, #8b5cf6, #ec4899)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }
-                  }, "⚡"),
-                  React.createElement('div', { style: { flex: 1 } },
-                    React.createElement('div', {
-                      style: { fontSize: 11, fontWeight: 600, letterSpacing: 2, color: "#a78bfa", textTransform: "uppercase" }
-                    }, "2-Week Accelerated Program"),
-                    React.createElement('h1', {
-                      style: { margin: 0, fontSize: 24, fontWeight: 700, background: "linear-gradient(135deg, #e8e8ed, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }
-                    }, "Claude AI Bootcamp")
-                  )
-                ),
-                React.createElement('p', {
-                  style: { margin: "6px 0 14px", fontSize: 14, color: "#9898a8", lineHeight: 1.5 }
-                }, "Zero to running in 2 weeks. 60–90 min/day. Applied to your real work. Works on Windows and Mac."),
-                React.createElement('div', { style: { display: "flex", gap: 6, flexWrap: "wrap" } },
-                  [
-                    ["overview", "Overview"], ["week1", "Week 1"], ["week2", "Week 2"], ["paths", "Next Paths"], ["resources", "Resources"]
-                  ].map(([k, l]) =>
-                    React.createElement('button', {
-                      key: k,
-                      onClick: () => { setView(k); setSelectedDay(null); },
-                      style: {
-                        padding: "7px 14px",
-                        borderRadius: 8,
-                        border: view === k ? "1px solid #8b5cf6" : "1px solid rgba(255,255,255,0.08)",
-                        background: view === k ? "rgba(139,92,246,0.15)" : "rgba(255,255,255,0.03)",
-                        color: view === k ? "#c4b5fd" : "#7a7a8a",
-                        fontSize: 13,
-                        fontWeight: 500,
-                        cursor: "pointer"
-                      }
-                    }, l)
-                  )
-                )
-              )
-            ),
-            React.createElement('div', { style: { maxWidth: 900, margin: "0 auto", padding: "24px 24px 60px" } },
-              view === "overview" && !d && React.createElement('div', null,
-                React.createElement('div', {
-                  style: { background: "rgba(139,92,246,0.06)", border: "1px solid rgba(139,92,246,0.15)", borderRadius: 12, padding: 20, marginBottom: 24 }
-                },
-                  React.createElement('p', { style: { margin: 0, fontSize: 15, lineHeight: 1.65, color: "#c8c8d4" } },
-                    "This isn't optional enrichment. It's a two-week sprint to permanently change how your team works. Every day has one learning block ",
-                    React.createElement('span', { style: { color: "#a78bfa" } }, "(30–45 min)"),
-                    " and one applied task using ",
-                    React.createElement('span', { style: { color: "#a78bfa" } }, "your actual work"),
-                    ". By Day 10, Claude should feel like a team member you forgot to introduce at the all-hands."
-                  )
-                ),
-                React.createElement('h2', { style: { fontSize: 18, fontWeight: 600, marginBottom: 16, color: "#d4d4de" } }, "The 10-Day Map"),
-                React.createElement('div', { style: { display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 8, marginBottom: 32 } },
-                  DAYS.map((day, i) =>
-                    React.createElement('button', {
-                      key: i,
-                      onClick: () => { setSelectedDay(i); setView(day.week === 1 ? "week1" : "week2"); },
-                      style: {
-                        background: `linear-gradient(135deg, ${day.color}15, ${day.color}08)`,
-                        border: `1px solid ${day.color}30`,
-                        borderRadius: 10,
-                        padding: "14px 8px",
-                        cursor: "pointer",
-                        textAlign: "center",
-                        transition: "all 0.2s",
-                        position: "relative"
-                      }
-                    },
-                      (day.day === 6 || day.day === 10) && React.createElement('div', {
-                        style: { position: "absolute", top: 4, right: 4, width: 6, height: 6, borderRadius: "50%", background: "#fbbf24" }
-                      }),
-                      React.createElement('div', { style: { fontSize: 22, marginBottom: 4 } }, day.icon),
-                      React.createElement('div', {
-                        style: { fontSize: 10, fontWeight: 600, color: day.color, letterSpacing: 1, textTransform: "uppercase", marginBottom: 2 }
-                      }, "Day ", day.day),
-                      React.createElement('div', { style: { fontSize: 11, color: "#9898a8", lineHeight: 1.3 } },
-                        day.title.replace("🔥 ", "").replace("🏁 ", "")
-                      )
-                    )
-                  )
-                )
-              ),
-              view === "paths" && React.createElement('div', null,
-                React.createElement('h2', { style: { fontSize: 18, fontWeight: 600, marginBottom: 6, color: "#d4d4de" } }, "What's Next: Choose Your Path"),
-                React.createElement('p', { style: { fontSize: 14, color: "#7a7a8a", marginBottom: 20 } }, "After completing the bootcamp, you have three pathways to go deeper. Pick the one that matches your goals and technical comfort level."),
-                React.createElement('div', { style: { display: "flex", flexDirection: "column", gap: 14 } },
-                  PATHS.map((path, i) =>
-                    React.createElement('div', {
-                      key: i,
-                      style: {
-                        background: "rgba(255,255,255,0.02)",
-                        border: `2px solid ${path.color}30`,
-                        borderRadius: 12,
-                        padding: 20
-                      }
-                    },
-                      React.createElement('div', { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 12 } },
-                        React.createElement('div', { style: { fontSize: 28 } }, path.icon),
-                        React.createElement('div', { style: { flex: 1 } },
-                          React.createElement('h3', { style: { margin: 0, fontSize: 17, fontWeight: 700, color: path.color } }, path.name),
-                          React.createElement('div', { style: { fontSize: 12, color: "#7a7a8a", fontStyle: "italic" } }, path.subtitle)
-                        )
-                      ),
-                      React.createElement('p', { style: { margin: "0 0 14px", fontSize: 14, color: "#c8c8d4", lineHeight: 1.6 } }, path.description),
-                      React.createElement('div', { style: { fontSize: 12, fontWeight: 600, color: path.color, marginBottom: 8 } }, "Next Steps:"),
-                      React.createElement('div', { style: { display: "flex", flexDirection: "column", gap: 6 } },
-                        path.next.map((step, j) =>
-                          React.createElement('div', { key: j, style: { display: "flex", gap: 8, alignItems: "baseline" } },
-                            React.createElement('span', { style: { color: path.color, fontSize: 12 } }, "→"),
-                            React.createElement('span', { style: { fontSize: 13, color: "#b8b8c8", lineHeight: 1.5 } }, step)
-                          )
-                        )
-                      )
-                    )
-                  )
-                )
-              )
-            ),
-            React.createElement('div', { style: { borderTop: "1px solid rgba(255,255,255,0.05)", padding: "16px 24px", textAlign: "center" } },
-              React.createElement('p', { style: { margin: 0, fontSize: 11, color: "#4a4a5a" } }, "Claude AI Bootcamp — February 2025 · Updated with Extended Thinking & Path Framework")
-            )
+          return (
+            <div style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", background: "#0a0a0f", color: "#e8e8ed", minHeight: "100vh" }}>
+              {/* Header */}
+              <div style={{ background: "linear-gradient(135deg, #1a1025 0%, #0f0a1a 50%, #0a0f1a 100%)", borderBottom: "1px solid rgba(139,92,246,0.2)", padding: "28px 24px 20px" }}>
+                <div style={{ maxWidth: 900, margin: "0 auto" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
+                    <div style={{ width: 40, height: 40, borderRadius: 10, background: "linear-gradient(135deg, #8b5cf6, #ec4899)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }}>⚡</div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: 2, color: "#a78bfa", textTransform: "uppercase" }}>2-Week Accelerated Program</div>
+                      <h1 style={{ margin: 0, fontSize: 24, fontWeight: 700, background: "linear-gradient(135deg, #e8e8ed, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Claude AI Bootcamp</h1>
+                    </div>
+                  </div>
+                  <p style={{ margin: "6px 0 14px", fontSize: 14, color: "#9898a8", lineHeight: 1.5 }}>Zero to running in 2 weeks. 60–90 min/day. Applied to your real work.</p>
+
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                    {[
+                      ["overview", "Overview"], ["week1", "Week 1"], ["week2", "Week 2"], ["paths", "Next Paths"], ["resources", "Resources"]
+                    ].map(([k, l]) => (
+                      <button key={k} onClick={() => { setView(k); setSelectedDay(null); }}
+                        style={{ padding: "7px 14px", borderRadius: 8, border: view === k ? "1px solid #8b5cf6" : "1px solid rgba(255,255,255,0.08)", background: view === k ? "rgba(139,92,246,0.15)" : "rgba(255,255,255,0.03)", color: view === k ? "#c4b5fd" : "#7a7a8a", fontSize: 13, fontWeight: 500, cursor: "pointer" }}>
+                        {l}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ maxWidth: 900, margin: "0 auto", padding: "24px 24px 60px" }}>
+                
+                {/* OVERVIEW */}
+                {view === "overview" && !d && (
+                  <div>
+                    <div style={{ background: "rgba(139,92,246,0.06)", border: "1px solid rgba(139,92,246,0.15)", borderRadius: 12, padding: 20, marginBottom: 24 }}>
+                      <p style={{ margin: 0, fontSize: 15, lineHeight: 1.65, color: "#c8c8d4" }}>
+                        This isn't optional enrichment. It's a two-week sprint to permanently change how your team works. Every day has one learning block <span style={{ color: "#a78bfa" }}>(30–45 min)</span> and one applied task using <span style={{ color: "#a78bfa" }}>your actual work</span>. By Day 10, Claude should feel like a team member you forgot to introduce.
+                      </p>
+                    </div>
+
+                    <h2 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16, color: "#d4d4de" }}>The 10-Day Map</h2>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 8, marginBottom: 32 }}>
+                      {DAYS.map((day, i) => (
+                        <button key={i} onClick={() => { setSelectedDay(i); setView(day.week === 1 ? "week1" : "week2"); }}
+                          style={{ background: `linear-gradient(135deg, ${day.color}15, ${day.color}08)`, border: `1px solid ${day.color}30`, borderRadius: 10, padding: "14px 8px", cursor: "pointer", textAlign: "center", transition: "all 0.2s", position: "relative" }}
+                          onMouseEnter={e => { e.currentTarget.style.borderColor = day.color + "60"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                          onMouseLeave={e => { e.currentTarget.style.borderColor = day.color + "30"; e.currentTarget.style.transform = "translateY(0)"; }}>
+                          {(day.day === 6 || day.day === 10) && <div style={{ position: "absolute", top: 4, right: 4, width: 6, height: 6, borderRadius: "50%", background: "#fbbf24" }} />}
+                          <div style={{ fontSize: 22, marginBottom: 4 }}>{day.icon}</div>
+                          <div style={{ fontSize: 10, fontWeight: 600, color: day.color, letterSpacing: 1, textTransform: "uppercase", marginBottom: 2 }}>Day {day.day}</div>
+                          <div style={{ fontSize: 11, color: "#9898a8", lineHeight: 1.3 }}>{day.title.replace("🔥 ", "").replace("🏁 ", "")}</div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* WEEK VIEWS */}
+                {(view === "week1" || view === "week2") && !d && (
+                  <div>
+                    <h2 style={{ fontSize: 18, fontWeight: 600, marginBottom: 6, color: "#d4d4de" }}>
+                      {view === "week1" ? "Week 1: Foundations at Speed" : "Week 2: Power Tools & Acceleration"}
+                    </h2>
+                    <p style={{ fontSize: 14, color: "#7a7a8a", marginBottom: 20 }}>
+                      {view === "week1" ? "Get fluent. Get productive. No theory without practice." : "Now you're fluent. Time to go faster."}
+                    </p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                      {DAYS.filter(d2 => d2.week === (view === "week1" ? 1 : 2)).map((day) => {
+                        const idx = DAYS.indexOf(day);
+                        return (
+                          <button key={idx} onClick={() => setSelectedDay(idx)}
+                            style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 18px", background: `linear-gradient(135deg, ${day.color}0a, ${day.color}04)`, border: `1px solid ${day.color}25`, borderRadius: 12, cursor: "pointer", textAlign: "left", width: "100%", position: "relative" }}
+                            onMouseEnter={e => { e.currentTarget.style.borderColor = day.color + "50"; }}
+                            onMouseLeave={e => { e.currentTarget.style.borderColor = day.color + "25"; }}>
+                            {(day.day === 6 || day.day === 10) && <div style={{ position: "absolute", top: 8, right: 8, background: "#fbbf24", color: "#1a1a1a", fontSize: 9, fontWeight: 700, padding: "2px 6px", borderRadius: 4 }}>UPDATED</div>}
+                            <div style={{ fontSize: 28, width: 44, textAlign: "center", flexShrink: 0 }}>{day.icon}</div>
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                              <div style={{ fontSize: 11, fontWeight: 600, color: day.color, letterSpacing: 1, textTransform: "uppercase" }}>Day {day.day}</div>
+                              <div style={{ fontSize: 15, fontWeight: 500, color: "#d4d4de", marginTop: 2 }}>{day.title}</div>
+                            </div>
+                            <div style={{ color: "#5a5a6a", fontSize: 18, flexShrink: 0 }}>→</div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* DAY DETAIL */}
+                {d && (view === "week1" || view === "week2") && (
+                  <div>
+                    <button onClick={() => setSelectedDay(null)} style={{ background: "none", border: "none", color: "#7a7a8a", cursor: "pointer", fontSize: 13, padding: "0 0 16px", display: "flex", alignItems: "center", gap: 6 }}>
+                      ← Back to {view === "week1" ? "Week 1" : "Week 2"}
+                    </button>
+
+                    <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
+                      <div style={{ fontSize: 36 }}>{d.icon}</div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontSize: 11, fontWeight: 600, color: d.color, letterSpacing: 1.5, textTransform: "uppercase" }}>Day {d.day}</div>
+                        <h2 style={{ margin: 0, fontSize: 22, fontWeight: 700, color: "#e8e8ed" }}>{d.title}</h2>
+                      </div>
+                    </div>
+
+                    {d.highlight && (
+                      <div style={{ background: "rgba(192,132,252,0.1)", border: "1px solid rgba(192,132,252,0.25)", borderRadius: 10, padding: "12px 16px", marginBottom: 18 }}>
+                        <p style={{ margin: 0, fontSize: 14, color: "#d8b4fe", fontWeight: 500 }}>⭐ {d.highlightText}</p>
+                      </div>
+                    )}
+
+                    {d.callout && (
+                      <div style={{ background: "rgba(251,113,133,0.08)", border: "1px solid rgba(251,113,133,0.2)", borderRadius: 10, padding: "12px 16px", marginBottom: 18 }}>
+                        <p style={{ margin: 0, fontSize: 13, color: "#fda4af", lineHeight: 1.5 }}>{d.callout}</p>
+                      </div>
+                    )}
+
+                    {d.platformNote && (
+                      <div style={{ background: "rgba(74,222,128,0.06)", border: "1px solid rgba(74,222,128,0.15)", borderRadius: 10, padding: "12px 16px", marginBottom: 18 }}>
+                        <p style={{ margin: 0, fontSize: 13, color: "#86efac", lineHeight: 1.5 }}>{d.platformNote}</p>
+                      </div>
+                    )}
+
+                    {d.browserNote && <BrowserNote />}
+
+                    {/* Learn */}
+                    {d.learn && d.learn.length > 0 && (
+                      <div style={{ marginBottom: 20 }}>
+                        <h3 style={{ fontSize: 13, fontWeight: 600, color: "#818cf8", letterSpacing: 1, textTransform: "uppercase", marginBottom: 10 }}>📚 Learn</h3>
+                        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                          {d.learn.map((item, i) => (
+                            <div key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "12px 16px" }}>
+                              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 10 }}>
+                                <div style={{ flex: 1 }}>
+                                  <div style={{ fontSize: 14, fontWeight: 500, color: "#d4d4de", marginBottom: item.sub ? 4 : 0 }}>
+                                    {item.text}
+                                    {item.badge && <Badge text={item.badge} color="#fbbf24" />}
+                                  </div>
+                                  {item.sub && <div style={{ fontSize: 12, color: "#7a7a8a", lineHeight: 1.4 }}>{item.sub}</div>}
+                                </div>
+                                {item.time && <span style={{ fontSize: 11, color: "#6366f1", background: "rgba(99,102,241,0.12)", padding: "3px 8px", borderRadius: 6, fontWeight: 500, whiteSpace: "nowrap" }}>{item.time}</span>}
+                              </div>
+                              {item.link && <div style={{ marginTop: 6 }}><span style={{ fontSize: 11, color: "#8b5cf6", wordBreak: "break-all" }}>{item.link}</span></div>}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Extended Thinking */}
+                    {d.extendedThinking && (
+                      <div style={{ background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 12, padding: 18, marginBottom: 20 }}>
+                        <h3 style={{ margin: "0 0 8px", fontSize: 15, fontWeight: 600, color: "#fbbf24" }}>{d.extendedThinking.title}</h3>
+                        <p style={{ margin: "0 0 12px", fontSize: 13, color: "#d4d4de", lineHeight: 1.6 }}>{d.extendedThinking.description}</p>
+                        
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 12 }}>
+                          {d.extendedThinking.useCases.map((uc, i) => (
+                            <div key={i} style={{ background: "rgba(255,255,255,0.03)", borderRadius: 8, padding: "10px 12px" }}>
+                              <div style={{ fontSize: 18, marginBottom: 4 }}>{uc.icon}</div>
+                              <div style={{ fontSize: 12, fontWeight: 600, color: "#e8e8ed", marginBottom: 2 }}>{uc.title}</div>
+                              <div style={{ fontSize: 11, color: "#9898a8", lineHeight: 1.4 }}>{uc.desc}</div>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div style={{ background: "rgba(251,191,36,0.1)", borderRadius: 8, padding: "10px 12px", marginBottom: 10 }}>
+                          <div style={{ fontSize: 12, fontWeight: 600, color: "#fbbf24", marginBottom: 4 }}>Cost/Benefit</div>
+                          <p style={{ margin: 0, fontSize: 12, color: "#d4d4de", lineHeight: 1.5 }}>{d.extendedThinking.tradeoff}</p>
+                        </div>
+
+                        <div style={{ fontSize: 12, color: "#b8b8c8", lineHeight: 1.5 }}>
+                          <strong style={{ color: "#e8e8ed" }}>How to use:</strong> {d.extendedThinking.howTo}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Tips */}
+                    {d.tips && (
+                      <div style={{ marginBottom: 20 }}>
+                        <h3 style={{ fontSize: 13, fontWeight: 600, color: "#a78bfa", letterSpacing: 1, textTransform: "uppercase", marginBottom: 10 }}>🔑 5 Rules to Internalize</h3>
+                        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                          {d.tips.map((tip, i) => (
+                            <div key={i} style={{ display: "flex", alignItems: "baseline", gap: 10, padding: "8px 14px", background: "rgba(167,139,250,0.06)", borderRadius: 8 }}>
+                              <span style={{ fontSize: 13, fontWeight: 700, color: "#8b5cf6", minWidth: 18 }}>{i + 1}.</span>
+                              <span style={{ fontSize: 13, color: "#c8c8d4" }}>{tip}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Do It */}
+                    <div style={{ marginBottom: 20 }}>
+                      <h3 style={{ fontSize: 13, fontWeight: 600, color: "#f472b6", letterSpacing: 1, textTransform: "uppercase", marginBottom: 10 }}>{d.sprint ? (d.capstone ? "🏁 Session" : "⚡ Sprint") : "🛠️ Do It"}</h3>
+                      {d.capstone && d.parts ? (
+                        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                          {d.parts.map((p, i) => (
+                            <div key={i} style={{ background: "rgba(244,63,94,0.06)", border: "1px solid rgba(244,63,94,0.15)", borderRadius: 10, padding: "14px 16px", position: "relative" }}>
+                              {p.badge && <div style={{ position: "absolute", top: 10, right: 10, background: "#fbbf24", color: "#1a1a1a", fontSize: 9, fontWeight: 700, padding: "2px 6px", borderRadius: 4 }}>UPDATED</div>}
+                              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+                                <span style={{ fontSize: 14, fontWeight: 600, color: "#fb7185" }}>Part {i + 1}: {p.title}</span>
+                                <span style={{ fontSize: 11, color: "#f43f5e", background: "rgba(244,63,94,0.12)", padding: "3px 8px", borderRadius: 6 }}>{p.time}</span>
+                              </div>
+                              <p style={{ margin: 0, fontSize: 13, color: "#9898a8", lineHeight: 1.5 }}>{p.desc}</p>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div style={{ background: "rgba(244,114,182,0.06)", border: "1px solid rgba(244,114,182,0.15)", borderRadius: 10, padding: "14px 16px" }}>
+                          <p style={{ margin: 0, fontSize: 14, color: "#d4d4de", lineHeight: 1.6 }}>{d.doIt}</p>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Roles */}
+                    {d.roles && (
+                      <div style={{ marginBottom: 20 }}>
+                        <h3 style={{ fontSize: 13, fontWeight: 600, color: "#e879f9", letterSpacing: 1, textTransform: "uppercase", marginBottom: 10 }}>By Role</h3>
+                        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                          {d.roles.map((r, i) => (
+                            <div key={i} style={{ display: "flex", gap: 12, padding: "10px 14px", background: "rgba(232,121,249,0.05)", borderRadius: 8, alignItems: "baseline" }}>
+                              <span style={{ fontSize: 12, fontWeight: 600, color: "#d946ef", minWidth: 100, flexShrink: 0 }}>{r.role}</span>
+                              <span style={{ fontSize: 13, color: "#a8a8b8" }}>{r.task}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Safety */}
+                    {d.safety && (
+                      <div style={{ marginBottom: 20 }}>
+                        <h3 style={{ fontSize: 13, fontWeight: 600, color: "#fbbf24", letterSpacing: 1, textTransform: "uppercase", marginBottom: 10 }}>⚠️ Safety Rules</h3>
+                        <div style={{ background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 10, padding: "12px 16px" }}>
+                          {d.safety.map((s, i) => (
+                            <div key={i} style={{ fontSize: 13, color: "#d4d4de", lineHeight: 1.5, padding: "4px 0", display: "flex", gap: 8 }}>
+                              <span style={{ color: "#fbbf24" }}>•</span> {s}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {d.post && (
+                      <div style={{ background: "rgba(34,197,94,0.06)", border: "1px solid rgba(34,197,94,0.15)", borderRadius: 10, padding: "12px 16px", marginBottom: 16 }}>
+                        <div style={{ fontSize: 11, fontWeight: 600, color: "#4ade80", letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>Post in #claude-bootcamp</div>
+                        <p style={{ margin: 0, fontSize: 13, color: "#a8a8b8" }}>{d.post}</p>
+                      </div>
+                    )}
+
+                    {d.mindset && (
+                      <div style={{ background: "rgba(99,102,241,0.08)", borderLeft: `3px solid ${d.color}`, borderRadius: "0 8px 8px 0", padding: "12px 16px", marginBottom: 16 }}>
+                        <p style={{ margin: 0, fontSize: 14, color: "#c4b5fd", fontStyle: "italic" }}>💡 {d.mindset}</p>
+                      </div>
+                    )}
+
+                    {d.weekend && (
+                      <div style={{ background: "rgba(168,85,247,0.06)", border: "1px solid rgba(168,85,247,0.15)", borderRadius: 10, padding: "12px 16px" }}>
+                        <p style={{ margin: 0, fontSize: 13, color: "#c084fc" }}>{d.weekend}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* PATHS */}
+                {view === "paths" && (
+                  <div>
+                    <h2 style={{ fontSize: 18, fontWeight: 600, marginBottom: 6, color: "#d4d4de" }}>What's Next: Choose Your Path</h2>
+                    <p style={{ fontSize: 14, color: "#7a7a8a", marginBottom: 20 }}>After completing the bootcamp, you have three pathways to go deeper.</p>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                      {PATHS.map((path, i) => (
+                        <div key={i} style={{ background: "rgba(255,255,255,0.02)", border: `2px solid ${path.color}30`, borderRadius: 12, padding: 20 }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+                            <div style={{ fontSize: 28 }}>{path.icon}</div>
+                            <div style={{ flex: 1 }}>
+                              <h3 style={{ margin: 0, fontSize: 17, fontWeight: 700, color: path.color }}>{path.name}</h3>
+                              <div style={{ fontSize: 12, color: "#7a7a8a", fontStyle: "italic" }}>{path.subtitle}</div>
+                            </div>
+                          </div>
+                          <p style={{ margin: "0 0 14px", fontSize: 14, color: "#c8c8d4", lineHeight: 1.6 }}>{path.description}</p>
+                          <div style={{ fontSize: 12, fontWeight: 600, color: path.color, marginBottom: 8 }}>Next Steps:</div>
+                          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                            {path.next.map((step, j) => (
+                              <div key={j} style={{ display: "flex", gap: 8, alignItems: "baseline" }}>
+                                <span style={{ color: path.color, fontSize: 12 }}>→</span>
+                                <span style={{ fontSize: 13, color: "#b8b8c8", lineHeight: 1.5 }}>{step}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* RESOURCES */}
+                {view === "resources" && (
+                  <div>
+                    <h2 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16, color: "#d4d4de" }}>Bookmark These</h2>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 28 }}>
+                      {RESOURCES.map((r, i) => (
+                        <div key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "14px 16px" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                            <span style={{ fontSize: 18 }}>{r.icon}</span>
+                            <span style={{ fontSize: 14, fontWeight: 600, color: "#d4d4de" }}>{r.name}</span>
+                          </div>
+                          <p style={{ margin: "0 0 6px", fontSize: 12, color: "#7a7a8a" }}>{r.desc}</p>
+                          <span style={{ fontSize: 11, color: "#8b5cf6" }}>{r.link}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <h2 style={{ fontSize: 18, fontWeight: 600, marginBottom: 16, color: "#d4d4de" }}>🎧 Podcasts</h2>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                      {PODCASTS.map((p, i) => (
+                        <div key={i} style={{ background: "rgba(244,114,182,0.04)", border: "1px solid rgba(244,114,182,0.1)", borderRadius: 10, padding: "14px 16px" }}>
+                          <div style={{ fontSize: 14, fontWeight: 600, color: "#f9a8d4", marginBottom: 2 }}>{p.name}</div>
+                          <p style={{ margin: 0, fontSize: 12, color: "#7a7a8a" }}>{p.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "16px 24px", textAlign: "center" }}>
+                <p style={{ margin: 0, fontSize: 11, color: "#4a4a5a" }}>Claude AI Bootcamp — February 2025 · Updated with Extended Thinking & Path Framework</p>
+              </div>
+            </div>
           );
         }
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(React.createElement(Bootcamp));
+        root.render(<Bootcamp />);
     </script>
 </body>
 </html>
