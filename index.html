@@ -12,6 +12,8 @@
         body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif; }
         #root { min-height: 100vh; }
         button { font-family: inherit; }
+        a { color: #8b5cf6; text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -208,12 +210,12 @@
         ];
 
         const RESOURCES = [
-          { name: "Anthropic Academy", desc: "Free official courses + certificates", link: "anthropic.skilljar.com", icon: "🎓" },
-          { name: "Claude Docs", desc: "Product documentation & how-tos", link: "docs.claude.com", icon: "📖" },
-          { name: "Claude Blog", desc: "Skills, Cowork, deep dives", link: "claude.com/blog", icon: "📝" },
-          { name: "DeepLearning.AI", desc: "Free Anthropic-partnered courses", link: "deeplearning.ai/short-courses", icon: "🧪" },
-          { name: "GitHub Skills", desc: "Free interactive GitHub training", link: "skills.github.com", icon: "🔀" },
-          { name: "Simon Willison", desc: "Sharpest voice on Claude tooling", link: "simonwillison.net", icon: "🔍" }
+          { name: "Anthropic Academy", desc: "Free official courses + certificates", link: "https://anthropic.skilljar.com", icon: "🎓" },
+          { name: "Claude Docs", desc: "Product documentation & how-tos", link: "https://docs.claude.com", icon: "📖" },
+          { name: "Claude Blog", desc: "Skills, Cowork, deep dives", link: "https://claude.com/blog", icon: "📝" },
+          { name: "DeepLearning.AI", desc: "Free Anthropic-partnered courses", link: "https://www.deeplearning.ai/short-courses", icon: "🧪" },
+          { name: "GitHub Skills", desc: "Free interactive GitHub training", link: "https://skills.github.com", icon: "🔀" },
+          { name: "Simon Willison", desc: "Sharpest voice on Claude tooling", link: "https://simonwillison.net", icon: "🔍" }
         ];
 
         const PODCASTS = [
@@ -383,7 +385,13 @@
                                 </div>
                                 {item.time && <span style={{ fontSize: 11, color: "#6366f1", background: "rgba(99,102,241,0.12)", padding: "3px 8px", borderRadius: 6, fontWeight: 500, whiteSpace: "nowrap" }}>{item.time}</span>}
                               </div>
-                              {item.link && <div style={{ marginTop: 6 }}><span style={{ fontSize: 11, color: "#8b5cf6", wordBreak: "break-all" }}>{item.link}</span></div>}
+                              {item.link && (
+                                <div style={{ marginTop: 6 }}>
+                                  <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ fontSize: 11, color: "#8b5cf6", wordBreak: "break-all" }}>
+                                    {item.link}
+                                  </a>
+                                </div>
+                              )}
                             </div>
                           ))}
                         </div>
@@ -412,7 +420,7 @@
                         </div>
 
                         <div style={{ fontSize: 12, color: "#b8b8c8", lineHeight: 1.5 }}>
-                          <strong style={{ color: "#e8e8ed" }}>How to use:</strong> {d.extendedThinking.howTo}
+                          <strong style={{ color: "#e8e8ed" }}>How to use:</strong> In <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" style={{ color: "#8b5cf6" }}>claude.ai</a>: Select 'Claude Opus 4.5' model → Enable 'Extended Thinking' toggle before sending your prompt. Watch Claude show its reasoning process in real-time.
                         </div>
                       </div>
                     )}
@@ -486,7 +494,7 @@
 
                     {d.post && (
                       <div style={{ background: "rgba(34,197,94,0.06)", border: "1px solid rgba(34,197,94,0.15)", borderRadius: 10, padding: "12px 16px", marginBottom: 16 }}>
-                        <div style={{ fontSize: 11, fontWeight: 600, color: "#4ade80", letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>Post in #claude-bootcamp</div>
+                        <div style={{ fontSize: 11, fontWeight: 600, color: "#4ade80", letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>Share in your Teams chat</div>
                         <p style={{ margin: 0, fontSize: 13, color: "#a8a8b8" }}>{d.post}</p>
                       </div>
                     )}
@@ -549,7 +557,9 @@
                             <span style={{ fontSize: 14, fontWeight: 600, color: "#d4d4de" }}>{r.name}</span>
                           </div>
                           <p style={{ margin: "0 0 6px", fontSize: 12, color: "#7a7a8a" }}>{r.desc}</p>
-                          <span style={{ fontSize: 11, color: "#8b5cf6" }}>{r.link}</span>
+                          <a href={r.link.startsWith('http') ? r.link : `https://${r.link}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 11, color: "#8b5cf6" }}>
+                            {r.link}
+                          </a>
                         </div>
                       ))}
                     </div>
